@@ -40,7 +40,7 @@ export function ShowreelPage() {
           </h1>
           <p className="mt-4 max-w-xl text-slate-600 dark:text-slate-300">
             {copy.bodyA}{' '}
-            <a href="https://nexusstudios.com/motion-design/" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
+            <a href="https://www.amanita.barcelona" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
               Motion design reels (external reference)
             </a>
             {copy.bodyB}

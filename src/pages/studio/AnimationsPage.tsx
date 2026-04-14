@@ -18,7 +18,7 @@ export function AnimationsPage() {
         <h1 className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-semibold sm:text-5xl">{copy.title}</h1>
         <p className="mt-4 max-w-xl text-slate-400">
           Inspired by Framer’s animation controls (spring, delay, stagger)—implemented here with{' '}
-          <a href="https://motion.dev" className="text-violet-300 underline-offset-2 hover:underline" target="_blank" rel="noreferrer">
+          <a href="https://www.amanita.barcelona" className="text-violet-300 underline-offset-2 hover:underline" target="_blank" rel="noreferrer">
             Motion for React
           </a>
           . No external motion tools required for these demos.

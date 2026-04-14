@@ -121,7 +121,7 @@ export function FreelancersPage() {
         >
           As a freelancer or small practice, you strategize, integrate, and de-risk every week. Clients now expect faster launches, measurable outcomes, and safe autonomy—while you still need to win the next project.{' '}
           <span className="text-white">amanita helps you deliver high-impact agent systems, keep clients organized, and take on bolder work without burning out</span>—patterned after how modern platforms talk to independents (see{' '}
-          <a href="https://webflow.com/solutions/freelancers" className="underline-offset-2 hover:underline" target="_blank" rel="noreferrer">
+          <a href="https://www.amanita.barcelona" className="underline-offset-2 hover:underline" target="_blank" rel="noreferrer">
             Webflow for Freelancers
           </a>
           ).
@@ -182,7 +182,7 @@ export function FreelancersPage() {
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-slate-900 dark:text-white">Launch faster—with guardrails</h2>
           <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
             Borrowing the “design & build → ROI → client management → hosting” rhythm from{' '}
-            <a href="https://webflow.com/solutions/freelancers" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
+            <a href="https://www.amanita.barcelona" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
               Webflow’s freelancer narrative
             </a>
             , we map those beats to agents: blueprints, eval dashboards, secure handoffs, and operated runtimes.

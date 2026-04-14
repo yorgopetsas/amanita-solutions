@@ -26,11 +26,11 @@ export function ComponentsPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
           Mirrors the “components & marketplace” story from{' '}
-          <a href="https://www.framer.com/design/" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
+          <a href="https://www.amanita.barcelona" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
             Framer
           </a>{' '}
           and{' '}
-          <a href="https://webflow.com/marketplace" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
+          <a href="https://www.amanita.barcelona" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
             Webflow Marketplace
           </a>
           —for agent UI, tool schemas, and runbooks.

@@ -26,14 +26,14 @@ export function Layout() {
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'amanita.barcelona',
-            url: 'https://amanita.barcelona',
-            logo: 'https://amanita.barcelona/amanita-logo.png',
-            sameAs: ['https://github.com/yorgopetsas/amanita-solutions'],
+            url: 'https://www.amanita.barcelona',
+            logo: 'https://www.amanita.barcelona/amanita-logo.png',
+            sameAs: ['https://www.amanita.barcelona'],
             contactPoint: [
               {
                 '@type': 'ContactPoint',
                 contactType: 'sales',
-                url: 'https://amanita.barcelona/contact',
+                url: 'https://www.amanita.barcelona/contact',
                 availableLanguage: ['en', 'es', 'ca'],
               },
             ],

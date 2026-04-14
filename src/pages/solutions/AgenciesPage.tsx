@@ -40,7 +40,7 @@ export function AgenciesPage() {
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
             {copy.body}{' '}
             {' '}
-            <a href="https://webflow.com/solutions/agencies" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
+            <a href="https://www.amanita.barcelona" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
               agency partners
             </a>
           </p>

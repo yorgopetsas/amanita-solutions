@@ -127,7 +127,7 @@ export function MagicChatDock() {
               <p className="mt-2 text-center text-[11px] text-slate-500 dark:text-slate-400">
                 Not connected to a live model — see{' '}
                 <a
-                  href="https://21st.dev/magic-chat"
+                  href="https://www.amanita.barcelona"
                   className="text-violet-600 underline-offset-2 hover:underline dark:text-violet-300"
                   target="_blank"
                   rel="noreferrer"

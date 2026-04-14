@@ -139,14 +139,16 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           to="/"
           className={`flex items-center gap-2 font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight ${logoText}`}
         >
-          <img
-            src="/amanita-logo.png"
-            alt=""
-            width={36}
-            height={36}
-            className="h-9 w-9 shrink-0 object-contain"
-            decoding="async"
-          />
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/85 ring-1 ring-violet-200 shadow-sm dark:bg-slate-100/90 dark:ring-violet-300/30">
+            <img
+              src="/amanita-logo.png"
+              alt=""
+              width={30}
+              height={30}
+              className="h-8 w-8 object-contain"
+              decoding="async"
+            />
+          </span>
           {logoName}
         </Link>
       </motion.div>

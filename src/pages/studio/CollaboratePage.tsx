@@ -53,7 +53,7 @@ export function CollaboratePage() {
         </ol>
         <p className="mt-4 text-xs text-slate-500">
           Parallels ideas from{' '}
-          <a href="https://webflow.com/solutions/freelancers" className="text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
+          <a href="https://www.amanita.barcelona" className="text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
             Webflow’s freelancer FAQ on handoff
           </a>
           .

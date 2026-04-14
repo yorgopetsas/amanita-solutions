@@ -8,7 +8,7 @@ type SeoProps = {
 }
 
 const SITE_NAME = 'amanita.barcelona'
-const BASE_URL = 'https://amanita.barcelona'
+const BASE_URL = 'https://www.amanita.barcelona'
 const DEFAULT_IMAGE = `${BASE_URL}/favicon.svg`
 
 export function Seo({ title, description, path, image }: SeoProps) {

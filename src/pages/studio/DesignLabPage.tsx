@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import { useI18n } from '../../i18n/I18nProvider'
 
 const blocks = [
-  { title: 'Design freely', body: 'Explore agent UX like a canvas—states, empty screens, escalation paths—before you commit to production wiring.', href: 'https://www.framer.com/design/' },
-  { title: 'Move to live agents', body: 'Promote mocks to Web Pages: add breakpoints for mobile ops, supervisor views, and exec summaries.', href: 'https://www.framer.com/design/' },
-  { title: 'Beyond single pages', body: 'Use the lab for tool schemas, eval cards, and social-ready explainers—all in one system.', href: 'https://www.framer.com/design/' },
+  { title: 'Design freely', body: 'Explore agent UX like a canvas—states, empty screens, escalation paths—before you commit to production wiring.', href: 'https://www.amanita.barcelona' },
+  { title: 'Move to live agents', body: 'Promote mocks to Web Pages: add breakpoints for mobile ops, supervisor views, and exec summaries.', href: 'https://www.amanita.barcelona' },
+  { title: 'Beyond single pages', body: 'Use the lab for tool schemas, eval cards, and social-ready explainers—all in one system.', href: 'https://www.amanita.barcelona' },
 ]
 
 export function DesignLabPage() {
@@ -29,7 +29,7 @@ export function DesignLabPage() {
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
           Paraphrasing{' '}
-          <a href="https://www.framer.com/design/" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
+          <a href="https://www.amanita.barcelona" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
             Framer Design
           </a>
           : skip static decks—prototype how operators actually steer agents, then publish patterns your team reuses.
