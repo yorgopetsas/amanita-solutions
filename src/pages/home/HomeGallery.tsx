@@ -7,9 +7,14 @@ import { useI18n } from '../../i18n/I18nProvider'
 
 export function HomeGallery() {
   const reduce = useReducedMotion()
-  const { t } = useI18n()
+  const { locale, t } = useI18n()
+  const copy = {
+    en: { theme: 'Theme', open: 'Open full homepage' },
+    es: { theme: 'Tema', open: 'Abrir homepage completa' },
+    ca: { theme: 'Tema', open: 'Obrir homepage completa' },
+  }[locale]
   return (
-    <div className="space-y-12">
+    <div className="space-y-12" data-no-auto-translate="true">
       <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-violet-50 via-white to-fuchsia-50 p-8 shadow-sm dark:border-slate-800 dark:from-slate-900 dark:via-slate-950 dark:to-violet-950/40 sm:p-12">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
@@ -47,7 +52,9 @@ export function HomeGallery() {
           >
             <div className="h-2 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-indigo-500 opacity-80" style={{ backgroundSize: '200% 100%' }} />
             <div className="p-6">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Theme {h.id}</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                {copy.theme} {h.id}
+              </p>
               <h2 className="mt-1 font-[family-name:var(--font-display)] text-xl font-semibold text-slate-900 dark:text-white">{h.title}</h2>
               <p className="mt-2 text-sm text-violet-700 dark:text-violet-300">{h.palette}</p>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{h.vibe}</p>
@@ -55,7 +62,7 @@ export function HomeGallery() {
                 to={h.path}
                 className="mt-4 inline-flex cursor-pointer items-center gap-1 text-sm font-semibold text-violet-600 transition group-hover:gap-2 dark:text-violet-300"
               >
-                Open full homepage <ArrowRight className="h-4 w-4" />
+                {copy.open} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </motion.article>

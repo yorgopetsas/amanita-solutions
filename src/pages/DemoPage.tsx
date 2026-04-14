@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Activity, CheckCircle2, Database, Search, Wrench } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../i18n/I18nProvider'
 
 type Step = { id: string; label: string; detail: string; icon: typeof Search }
 
@@ -17,6 +18,39 @@ export function DemoPage() {
   const reduce = useReducedMotion()
   const [idx, setIdx] = useState(0)
   const [running, setRunning] = useState(true)
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      title: 'Interactive demo',
+      body: 'A looping trace visualization (no backend). In production, embed a screen recording or wire this UI to your observability feed.',
+      pause: 'Pause loop',
+      resume: 'Resume loop',
+      book: 'Book live walkthrough',
+      kit: 'Demo recording kit',
+      live: 'Live span',
+      tip: 'Tip: use the proof kit to record a 60-90 second walkthrough and embed it on your case page.',
+    },
+    es: {
+      title: 'Demo interactiva',
+      body: 'Visualización de trazas en bucle (sin backend). En producción, inserta una grabación de pantalla o conecta esta UI a tu feed de observabilidad.',
+      pause: 'Pausar bucle',
+      resume: 'Reanudar bucle',
+      book: 'Reservar walkthrough en vivo',
+      kit: 'Kit de grabación de demo',
+      live: 'Span en vivo',
+      tip: 'Tip: usa el proof kit para grabar un walkthrough de 60-90 segundos e incrustarlo en tu case page.',
+    },
+    ca: {
+      title: 'Demo interactiva',
+      body: "Visualització de traces en bucle (sense backend). En producció, incrusta una gravació de pantalla o connecta aquesta UI al teu feed d'observabilitat.",
+      pause: 'Pausar bucle',
+      resume: 'Reprendre bucle',
+      book: 'Reservar walkthrough en viu',
+      kit: 'Kit de gravació de demo',
+      live: 'Span en viu',
+      tip: 'Tip: fes servir el proof kit per gravar un walkthrough de 60-90 segons i incrustar-lo a la teva case page.',
+    },
+  }[locale]
 
   useEffect(() => {
     if (!running || reduce) return
@@ -31,9 +65,9 @@ export function DemoPage() {
   return (
     <div className="space-y-10">
       <header>
-        <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">Interactive demo</h1>
+        <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{copy.title}</h1>
         <p className="mt-3 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-          A looping trace visualization (no backend). In production, embed a screen recording or wire this UI to your observability feed.
+          {copy.body}
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <button
@@ -41,13 +75,13 @@ export function DemoPage() {
             onClick={() => setRunning((r) => !r)}
             className="cursor-pointer rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-violet-400 dark:border-slate-600 dark:text-slate-100"
           >
-            {running ? 'Pause loop' : 'Resume loop'}
+            {running ? copy.pause : copy.resume}
           </button>
           <Link to="/contact" className="cursor-pointer rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white dark:bg-white dark:text-slate-900">
-            Book live walkthrough
+            {copy.book}
           </Link>
           <Link to="/proof-kit" className="cursor-pointer rounded-xl border border-violet-300 px-4 py-2 text-sm font-semibold text-violet-700 dark:border-violet-700 dark:text-violet-300">
-            Demo recording kit
+            {copy.kit}
           </Link>
         </div>
       </header>
@@ -81,7 +115,7 @@ export function DemoPage() {
 
         <div className="space-y-4">
           <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-            <p className="text-xs font-semibold uppercase text-slate-500">Live span</p>
+            <p className="text-xs font-semibold uppercase text-slate-500">{copy.live}</p>
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}
@@ -104,7 +138,7 @@ export function DemoPage() {
             </div>
           </div>
           <p className="text-xs text-slate-500">
-            Tip: use the proof kit to record a 60-90 second walkthrough and embed it on your case page.
+            {copy.tip}
           </p>
         </div>
       </div>

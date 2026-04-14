@@ -7,7 +7,12 @@ export function ContactPage() {
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const bookingUrl = getBookingUrl()
-  const { t } = useI18n()
+  const { locale, t } = useI18n()
+  const sentMsg = {
+    en: 'Thanks. Lead captured successfully (live webhook if configured, otherwise demo mode).',
+    es: 'Gracias. Lead capturado correctamente (webhook en vivo si está configurado, de lo contrario modo demo).',
+    ca: "Gràcies. Lead capturat correctament (webhook en viu si està configurat, altrament mode demo).",
+  }[locale]
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -23,7 +28,7 @@ export function ContactPage() {
   }
 
   return (
-    <div className="mx-auto max-w-xl space-y-6">
+    <div className="mx-auto max-w-xl space-y-6" data-no-auto-translate="true">
       <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{t('contact.title')}</h1>
       <p className="text-slate-600 dark:text-slate-300">
         {t('contact.body')} <code className="rounded bg-slate-100 px-1 dark:bg-slate-800">VITE_LEAD_WEBHOOK_URL</code> +{' '}
@@ -40,7 +45,7 @@ export function ContactPage() {
       </a>
       {sent ? (
         <p className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100">
-          Thanks. Lead captured successfully (live webhook if configured, otherwise demo mode).
+          {sentMsg}
         </p>
       ) : (
         <form className="space-y-4" onSubmit={onSubmit}>

@@ -29,9 +29,65 @@ const tiers = [
 ]
 
 export function PricingPage() {
-  const { t } = useI18n()
+  const { locale, t } = useI18n()
+  const tiersByLocale = {
+    en: tiers,
+    es: [
+      {
+        name: 'Lanzamiento',
+        price: '$18k',
+        cadence: 'pago único + $2.5k/mes',
+        blurb: 'Un flujo, una ruta principal de modelo, evaluaciones base.',
+        items: ['Discovery + arquitectura', 'MVP de agente + shell UI', '30 días de hypercare'],
+      },
+      {
+        name: 'Escala',
+        price: '$48k',
+        cadence: 'pago único + $8k/mes',
+        blurb: 'Multiagente con memoria + retrieval, hooks CI de evaluación, rotación on-call.',
+        items: ['Todo lo de Lanzamiento', 'Orquestación + pack de gobierno', 'Escalado por Slack/email'],
+        featured: true,
+      },
+      {
+        name: 'Enterprise',
+        price: 'Personalizado',
+        cadence: 'anual',
+        blurb: 'Networking privado, controles multi-tenant, artefactos de compliance a medida.',
+        items: ['Squad embebido', 'SLAs personalizados', 'Revisiones de seguridad y soporte pentest'],
+      },
+    ],
+    ca: [
+      {
+        name: 'Llançament',
+        price: '$18k',
+        cadence: 'pagament únic + $2.5k/mes',
+        blurb: 'Un flux, una ruta principal de model, avaluacions base.',
+        items: ['Discovery + arquitectura', "MVP d'agent + shell UI", '30 dies de hypercare'],
+      },
+      {
+        name: 'Escala',
+        price: '$48k',
+        cadence: 'pagament únic + $8k/mes',
+        blurb: 'Multiagent amb memòria + retrieval, hooks CI d’avaluació, rotació on-call.',
+        items: ['Tot el de Llançament', "Orquestració + pack de govern", 'Escalat per Slack/email'],
+        featured: true,
+      },
+      {
+        name: 'Enterprise',
+        price: 'Personalitzat',
+        cadence: 'anual',
+        blurb: 'Xarxa privada, controls multi-tenant, artefactes de compliance a mida.',
+        items: ['Squad integrat', 'SLAs personalitzats', 'Revisions de seguretat i suport pentest'],
+      },
+    ],
+  }[locale]
+  const copy = {
+    en: { talk: 'Talk to us', prelaunch: 'Pre-launch offer pricing bands' },
+    es: { talk: 'Hablemos', prelaunch: 'Bandas de precios de ofertas pre-lanzamiento' },
+    ca: { talk: 'Parlem', prelaunch: "Franges de preus d'ofertes prellançament" },
+  }[locale]
   return (
-    <div className="space-y-12">
+    <div className="space-y-12" data-no-auto-translate="true">
       <header className="text-center">
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{t('pricing.title')}</h1>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
@@ -42,7 +98,7 @@ export function PricingPage() {
         </Link>
       </header>
       <div className="grid gap-6 lg:grid-cols-3">
-        {tiers.map((t) => (
+        {tiersByLocale.map((t) => (
           <div
             key={t.name}
             className={`flex flex-col rounded-2xl border p-6 ${
@@ -71,14 +127,14 @@ export function PricingPage() {
                   : 'border border-slate-300 text-slate-900 hover:border-violet-400 dark:border-slate-600 dark:text-white'
               }`}
             >
-              Talk to us
+              {copy.talk}
             </Link>
           </div>
         ))}
       </div>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-        <h2 className="font-semibold text-slate-900 dark:text-white">Pre-launch offer pricing bands</h2>
+        <h2 className="font-semibold text-slate-900 dark:text-white">{copy.prelaunch}</h2>
         <ul className="mt-4 grid gap-3 md:grid-cols-3">
           {productizedOffers.map((offer) => (
             <li key={offer.slug} className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/60">
