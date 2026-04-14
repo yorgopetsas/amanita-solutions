@@ -9,7 +9,7 @@ initAnalytics()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/amanita-solutions">
       <App />
     </BrowserRouter>
   </StrictMode>,
