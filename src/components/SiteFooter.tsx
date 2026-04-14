@@ -6,6 +6,7 @@ import { useI18n } from '../i18n/I18nProvider'
 
 export function SiteFooter() {
   const { t, locale } = useI18n()
+  const sitemapLabel = locale === 'es' ? 'Mapa del sitio' : locale === 'ca' ? 'Mapa del lloc' : 'Sitemap'
   const reviewCopy = {
     en: {
       title: 'Review links',
@@ -291,7 +292,10 @@ export function SiteFooter() {
         <a className="underline-offset-2 hover:underline" href="https://www.amanita.barcelona" target="_blank" rel="noreferrer">
           www.amanita.barcelona
         </a>
-        ).
+        ).{' '}
+        <a className="underline-offset-2 hover:underline" href="/sitemap.xml" target="_blank" rel="noreferrer">
+          {sitemapLabel}
+        </a>
       </div>
     </footer>
   )
