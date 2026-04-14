@@ -26,15 +26,15 @@ export const events: EventItem[] = [
   },
   {
     slug: 'barcelona-ai-week',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Barcelona_Magic_Fountain_Night.jpg/1280px-Barcelona_Magic_Fountain_Night.jpg',
+    image: '/magic-fountain-montjuic.jpg',
     imageAlt: 'Magic Fountain of Montjuic in Barcelona',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Barcelona_Magic_Fountain_Night.jpg',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Fuente_Magica_-_Magic_Fountain_in_Barcelona_at_Montjuic.jpg',
   },
   {
     slug: 'applied-agents-meetup',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Cascada_Parc_Ciutadella.jpg/1280px-Cascada_Parc_Ciutadella.jpg',
+    image: '/waterfall-parc-ciutadella.jpg',
     imageAlt: 'Waterfall in Parc de la Ciutadella',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Cascada_Parc_Ciutadella.jpg',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Barcelona_Parc_Ciutadella_cascada.jpg',
   },
   {
     slug: 'enterprise-ai-roundtable',

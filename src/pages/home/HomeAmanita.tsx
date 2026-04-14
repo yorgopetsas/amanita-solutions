@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, CalendarDays, GraduationCap, MapPin, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Seo } from '../../components/Seo'
 import { useI18n } from '../../i18n/I18nProvider'
 
 export function HomeAmanita() {
@@ -88,7 +89,7 @@ export function HomeAmanita() {
       {
         name: 'Universitat Politècnica de Catalunya',
         focus: 'Engineering-focused university with leading programs in machine learning, systems, and applied technology for industry.',
-        img: '/upc-university.jpg',
+        img: '/upc-university.webp',
         imgAlt: 'Universitat Politècnica de Catalunya campus',
       },
       {
@@ -108,7 +109,7 @@ export function HomeAmanita() {
       {
         name: 'Universitat Politècnica de Catalunya',
         focus: 'Universidad orientada a ingeniería con programas líderes en machine learning, sistemas y tecnología aplicada a industria.',
-        img: '/upc-university.jpg',
+        img: '/upc-university.webp',
         imgAlt: 'Campus de la Universitat Politècnica de Catalunya',
       },
       {
@@ -128,7 +129,7 @@ export function HomeAmanita() {
       {
         name: 'Universitat Politècnica de Catalunya',
         focus: "Universitat enfocada en enginyeria amb programes líders en machine learning, sistemes i tecnologia aplicada a indústria.",
-        img: '/upc-university.jpg',
+        img: '/upc-university.webp',
         imgAlt: 'Campus de la Universitat Politècnica de Catalunya',
       },
       {
@@ -180,6 +181,18 @@ export function HomeAmanita() {
 
   return (
     <div className="space-y-14" data-no-auto-translate="true">
+      <Seo
+        title={locale === 'en' ? 'Barcelona AI Agency | amanita.barcelona' : locale === 'es' ? 'Agencia IA en Barcelona | amanita.barcelona' : "Agència IA a Barcelona | amanita.barcelona"}
+        description={
+          locale === 'en'
+            ? 'Amanita designs and deploys production AI agents for teams in Barcelona and beyond.'
+            : locale === 'es'
+              ? 'Amanita diseña y despliega agentes IA en producción para equipos en Barcelona y más allá.'
+              : 'Amanita dissenya i desplega agents IA en producció per a equips de Barcelona i més enllà.'
+        }
+        path="/"
+        image="/upc-university.webp"
+      />
       <section className="relative overflow-hidden rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 to-amber-50 p-8 sm:p-12">
         <motion.div
           aria-hidden

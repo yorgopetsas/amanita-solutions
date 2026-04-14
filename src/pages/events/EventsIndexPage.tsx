@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { HighIntentCtaStrip } from '../../components/HighIntentCtaStrip'
+import { Seo } from '../../components/Seo'
 import { events } from '../../data/events'
 import { useI18n } from '../../i18n/I18nProvider'
 
@@ -13,13 +15,13 @@ export function EventsIndexPage() {
     },
     es: {
       title: 'Eventos de IA en Barcelona',
-      body: 'Radar de conferencias para founders, operadores y equipos enterprise que construyen con IA en Barcelona.',
+      body: 'Radar de conferencias para founders, operadores y equipos empresariales que construyen con IA en Barcelona.',
       read: 'Leer artículo',
       source: 'Fuente oficial',
     },
     ca: {
       title: "Esdeveniments d'IA a Barcelona",
-      body: "Radar de conferències per a founders, operadors i equips enterprise que construeixen amb IA a Barcelona.",
+      body: "Radar de conferències per a founders, operadors i equips empresarials que construeixen amb IA a Barcelona.",
       read: "Llegir article",
       source: 'Font oficial',
     },
@@ -60,6 +62,17 @@ export function EventsIndexPage() {
 
   return (
     <div className="space-y-8" data-no-auto-translate="true">
+      <Seo
+        title={locale === 'en' ? 'AI Events Barcelona | amanita.barcelona' : locale === 'es' ? 'Eventos IA Barcelona | amanita.barcelona' : "Esdeveniments IA Barcelona | amanita.barcelona"}
+        description={
+          locale === 'en'
+            ? 'Explore key AI events in Barcelona with curated summaries and official sources.'
+            : locale === 'es'
+              ? 'Explora eventos clave de IA en Barcelona con resúmenes curados y fuentes oficiales.'
+              : "Explora esdeveniments clau d'IA a Barcelona amb resums curats i fonts oficials."
+        }
+        path="/events"
+      />
       <header>
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{copy.title}</h1>
         <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">{copy.body}</p>
@@ -83,6 +96,8 @@ export function EventsIndexPage() {
           </article>
         ))}
       </section>
+
+      <HighIntentCtaStrip />
     </div>
   )
 }

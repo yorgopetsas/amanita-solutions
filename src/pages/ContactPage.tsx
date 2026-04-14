@@ -1,4 +1,5 @@
 import { type FormEvent, useState } from 'react'
+import { Seo } from '../components/Seo'
 import { getBookingUrl, submitLead } from '../lib/leadCapture'
 import { trackEvent } from '../lib/analytics'
 import { useI18n } from '../i18n/I18nProvider'
@@ -29,6 +30,17 @@ export function ContactPage() {
 
   return (
     <div className="mx-auto max-w-xl space-y-6" data-no-auto-translate="true">
+      <Seo
+        title={locale === 'en' ? 'Contact | amanita.barcelona' : locale === 'es' ? 'Contacto | amanita.barcelona' : 'Contacte | amanita.barcelona'}
+        description={
+          locale === 'en'
+            ? 'Book a strategy call and share your AI agent goals with amanita.barcelona.'
+            : locale === 'es'
+              ? 'Reserva una llamada estratégica y comparte tus objetivos de agentes IA con amanita.barcelona.'
+              : 'Reserva una trucada estratègica i comparteix els teus objectius d’agents IA amb amanita.barcelona.'
+        }
+        path="/contact"
+      />
       <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{t('contact.title')}</h1>
       <p className="text-slate-600 dark:text-slate-300">{t('contact.body')}</p>
       <a

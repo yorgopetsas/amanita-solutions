@@ -1,5 +1,7 @@
 import { CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { HighIntentCtaStrip } from '../components/HighIntentCtaStrip'
+import { Seo } from '../components/Seo'
 import { icpProfiles, productizedOffers } from '../data/offers'
 import { useI18n } from '../i18n/I18nProvider'
 
@@ -24,7 +26,7 @@ export function OffersPage() {
     es: {
       badge: 'Ofertas core pre-lanzamiento',
       title: 'Escalera de servicios productizados',
-      body: 'Estructurado para un lanzamiento híbrido: una entrada de discovery, un paquete de build y un retainer mensual de operaciones.',
+      body: 'Estructurado para un lanzamiento híbrido: una entrada de descubrimiento, un paquete de implementación y un acompañamiento mensual de operaciones.',
       pains: 'Principales dolores',
       outcomes: 'Resultados esperados',
       timeline: 'Plazo',
@@ -32,14 +34,14 @@ export function OffersPage() {
       deliverables: 'Entregables',
       success: 'Métricas de éxito',
       next: 'Siguiente paso de conversión',
-      nextBody: 'Usa Discovery Sprint como llamada a la acción principal en el outreach inicial y luego pasa leads cualificados a MVP Build.',
+      nextBody: 'Usa Discovery Sprint como llamada a la acción principal en la prospección inicial y luego pasa los leads cualificados a MVP Build.',
       pricing: 'Ver página de precios',
       book: 'Reservar llamada de discovery',
     },
     ca: {
       badge: 'Ofertes core prellançament',
       title: 'Escala de serveis productitzats',
-      body: "Estructurat per a un llançament híbrid: una entrada de discovery, un paquet de build i un retainer mensual d'operacions.",
+      body: "Estructurat per a un llançament híbrid: una entrada de descoberta, un paquet d'implementació i un acompanyament mensual d'operacions.",
       pains: 'Dolors principals',
       outcomes: 'Resultats esperats',
       timeline: 'Termini',
@@ -47,7 +49,7 @@ export function OffersPage() {
       deliverables: 'Entregables',
       success: 'Mètriques d’èxit',
       next: 'Següent pas de conversió',
-      nextBody: 'Fes servir Discovery Sprint com a CTA principal en el primer outreach i després porta els leads qualificats cap a MVP Build.',
+      nextBody: 'Fes servir Discovery Sprint com a crida principal en la prospecció inicial i després porta els leads qualificats cap a MVP Build.',
       pricing: 'Veure pàgina de preus',
       book: 'Reservar trucada de discovery',
     },
@@ -60,15 +62,15 @@ export function OffersPage() {
         ? [
             {
               ...icpProfiles[0],
-              title: 'Equipos SMB con operaciones intensivas',
+              title: 'Equips SMB amb operacions intensives',
               pains: ['Triage manual de tickets', 'Seguimiento lento de clientes', 'Sin memoria de proceso consistente'],
               outcomes: ['Mejor tiempo de primera respuesta', 'Menor carga repetitiva', 'Automatización trazable con fallback humano'],
             },
             {
               ...icpProfiles[1],
-              title: 'Agencias y operadores fraccionales',
+              title: 'Agències i operadors fraccionals',
               pains: ['Implementaciones puntuales', 'Handoffs difíciles', 'Difícil demostrar ROI rápido'],
-              outcomes: ['Plantillas de entrega reutilizables', 'Playbooks de handoff seguros para cliente', 'Reporting mensual para retainer'],
+              outcomes: ['Plantilles de lliurament reutilitzables', 'Guies de traspàs segures per al client', 'Informe mensual per a l’acompanyament'],
             },
           ]
         : [
@@ -97,9 +99,9 @@ export function OffersPage() {
               fit: 'Ideal para equipos que deciden qué automatizar primero',
               timeline: '10 días laborables',
               summary:
-                'Paquete de discovery enfocado para mapear workflows, límites de riesgo y KPIs medibles antes de empezar a construir.',
+                'Paquete de descubrimiento enfocado para mapear flujos de trabajo, límites de riesgo y KPIs medibles antes de empezar a construir.',
               deliverables: [
-                'Mapa de workflows + matriz de priorización',
+                'Mapa de flujos de trabajo + matriz de priorización',
                 'Score de preparación de datos y herramientas',
                 'Roadmap de implementación a 90 días',
               ],
@@ -108,17 +110,17 @@ export function OffersPage() {
             {
               ...productizedOffers[1],
               name: 'MVP Agent Build',
-              fit: 'Ideal para un workflow de alto valor en producción',
+              fit: 'Ideal para un flujo de alto valor en producción',
               timeline: '3-6 semanas',
               summary:
-                'Implementación orientada a producción de un workflow de agente con retrieval, llamadas a herramientas y escalado humano, con guardrails de lanzamiento.',
+                'Implementación orientada a producción de un flujo de agente con recuperación, llamadas a herramientas y escalado humano, con guardrails de lanzamiento.',
               deliverables: ['Flujo de agente operativo + UI de operador', 'Suite de evaluación y baseline de regresión', 'Runbook + procedimiento de rollback'],
-              successMetrics: ['Tiempo a primer valor menor de 45 días', 'Tasa de deflexión del workflow objetivo', 'Calidad de escalado y cumplimiento de SLA'],
+              successMetrics: ['Tiempo a primer valor menor de 45 días', 'Tasa de deflexión del flujo objetivo', 'Calidad de escalado y cumplimiento de SLA'],
             },
             {
               ...productizedOffers[2],
               name: 'Agent Ops Retainer',
-              fit: 'Ideal para optimización continua y escalado multi-workflow',
+              fit: 'Ideal para optimización continua y escalado multiflujo',
               timeline: 'Compromiso mensual',
               summary:
                 'Monitorización continua, mejoras de prompts y tools, revisiones de evaluación e iteración de roadmap para mejorar rendimiento del agente en el tiempo.',
@@ -157,7 +159,7 @@ export function OffersPage() {
               fit: 'Ideal per a optimització contínua i escalat multi-workflow',
               timeline: 'Compromís mensual',
               summary:
-                "Monitoratge continu, millores de prompts i tools, revisions d'avaluació i iteració del roadmap per millorar el rendiment de l'agent.",
+                "Monitoratge continu, millores de prompts i eines, revisions d'avaluació i iteració del full de ruta per millorar el rendiment de l'agent.",
               deliverables: ['Informe mensual de qualitat + cost', "Backlog de tasques d'optimització", "Resposta a incidents i gestió de canvis"],
               successMetrics: ["Millora sostinguda del pass-rate d'evals", 'Menor cost per tasca exitosa', "Menor recurrència d'incidents"],
             },
@@ -165,6 +167,17 @@ export function OffersPage() {
 
   return (
     <div className="space-y-12" data-no-auto-translate="true">
+      <Seo
+        title={locale === 'en' ? 'AI Offers | amanita.barcelona' : locale === 'es' ? 'Ofertas IA | amanita.barcelona' : "Ofertes IA | amanita.barcelona"}
+        description={
+          locale === 'en'
+            ? 'Productized AI service offers for discovery, build, and operations in Barcelona.'
+            : locale === 'es'
+              ? 'Ofertas de servicios IA productizados para discovery, implementación y operaciones en Barcelona.'
+              : "Ofertes de serveis IA productitzats per descoberta, implementació i operacions a Barcelona."
+        }
+        path="/offers"
+      />
       <header>
         <p className="text-xs font-semibold uppercase tracking-wide text-violet-600 dark:text-violet-300">{copy.badge}</p>
         <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{copy.title}</h1>
@@ -240,6 +253,8 @@ export function OffersPage() {
           </Link>
         </div>
       </section>
+
+      <HighIntentCtaStrip />
     </div>
   )
 }

@@ -1,4 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { HighIntentCtaStrip } from '../../components/HighIntentCtaStrip'
+import { Seo } from '../../components/Seo'
 import { events } from '../../data/events'
 import { useI18n } from '../../i18n/I18nProvider'
 
@@ -6,17 +8,17 @@ const content = {
   'ai-summit-barcelona-2026': {
     en: {
       title: "AI Summit Barcelona 2026 | Europe's Biggest AI Event",
-      lead: 'A large-scale summit bringing founders, operators, and enterprise leaders together for practical AI deployment.',
+      lead: 'A large-scale summit bringing founders, operators, and business leaders together for practical AI deployment.',
       body: 'The event positions Barcelona as a European AI execution hub, with tracks for demos, workshops, and business outcomes. The 2026 edition emphasizes applied systems over speculative AI narratives.',
     },
     es: {
       title: 'AI Summit Barcelona 2026 | El mayor evento de IA en Europa',
-      lead: 'Un summit de gran escala que reúne founders, operadores y líderes enterprise para despliegues prácticos de IA.',
+      lead: 'Un summit de gran escala que reúne founders, operadores y líderes empresariales para despliegues prácticos de IA.',
       body: 'El evento posiciona Barcelona como hub europeo de ejecución en IA, con tracks de demos, workshops y resultados de negocio.',
     },
     ca: {
       title: "AI Summit Barcelona 2026 | L'esdeveniment d'IA més gran d'Europa",
-      lead: "Un summit de gran escala que reuneix founders, operadors i líders enterprise per a desplegaments pràctics d'IA.",
+      lead: "Un summit de gran escala que reuneix founders, operadors i líders empresarials per a desplegaments pràctics d'IA.",
       body: "L'esdeveniment posiciona Barcelona com a hub europeu d'execució en IA, amb tracks de demos, workshops i resultats de negoci.",
     },
   },
@@ -24,17 +26,17 @@ const content = {
     en: {
       title: 'World Mobile Congress',
       lead: 'The global connectivity event where telecom, infrastructure, and AI products converge in Barcelona.',
-      body: 'For AI teams, MWC is relevant because enterprise adoption happens where infrastructure, devices, and platform ecosystems meet. It is one of the strongest places to validate AI go-to-market partnerships.',
+      body: 'For AI teams, MWC is relevant because business adoption happens where infrastructure, devices, and platform ecosystems meet. It is one of the strongest places to validate AI go-to-market partnerships.',
     },
     es: {
       title: 'World Mobile Congress',
       lead: 'El evento global de conectividad donde convergen telecom, infraestructura y productos de IA en Barcelona.',
-      body: 'Para equipos de IA, MWC es clave porque la adopción enterprise ocurre donde se unen infraestructura, dispositivos y ecosistemas de plataforma.',
+      body: 'Para equipos de IA, MWC es clave porque la adopción empresarial ocurre donde se unen infraestructura, dispositivos y ecosistemas de plataforma.',
     },
     ca: {
       title: 'World Mobile Congress',
       lead: "L'esdeveniment global de connectivitat on convergeixen telecom, infraestructura i productes d'IA a Barcelona.",
-      body: "Per als equips d'IA, MWC és clau perquè l'adopció enterprise passa on s'uneixen infraestructura, dispositius i ecosistemes de plataforma.",
+      body: "Per als equips d'IA, MWC és clau perquè l'adopció empresarial passa on s'uneixen infraestructura, dispositius i ecosistemes de plataforma.",
     },
   },
   '4yfn-startup-event': {
@@ -117,6 +119,12 @@ export function EventDetailPage() {
   const source = locale === 'es' ? 'Fuente oficial' : locale === 'ca' ? 'Font oficial' : 'Official source'
   return (
     <article className="space-y-6" data-no-auto-translate="true">
+      <Seo
+        title={`${c.title} | amanita.barcelona`}
+        description={c.lead}
+        path={`/events/${slug}`}
+        image={event.image}
+      />
       <img src={event.image} alt={event.imageAlt} className="h-72 w-full rounded-2xl object-cover" />
       <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{c.title}</h1>
       <p className="text-lg text-slate-700 dark:text-slate-200">{c.lead}</p>
@@ -129,6 +137,7 @@ export function EventDetailPage() {
           {source}
         </a>
       </div>
+      <HighIntentCtaStrip />
     </article>
   )
 }

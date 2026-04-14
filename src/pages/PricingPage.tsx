@@ -1,5 +1,7 @@
 import { Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { HighIntentCtaStrip } from '../components/HighIntentCtaStrip'
+import { Seo } from '../components/Seo'
 import { productizedOffers } from '../data/offers'
 import { useI18n } from '../i18n/I18nProvider'
 
@@ -44,7 +46,7 @@ export function PricingPage() {
         name: 'Escala',
         price: '$48k',
         cadence: 'pago único + $8k/mes',
-        blurb: 'Multiagente con memoria + retrieval, hooks CI de evaluación, rotación on-call.',
+        blurb: 'Multiagente con memoria + recuperación, hooks CI de evaluación, rotación on-call.',
         items: ['Todo lo de Lanzamiento', 'Orquestación + pack de gobierno', 'Escalado por Slack/email'],
         featured: true,
       },
@@ -52,7 +54,7 @@ export function PricingPage() {
         name: 'Enterprise',
         price: 'Personalizado',
         cadence: 'anual',
-        blurb: 'Networking privado, controles multi-tenant, artefactos de compliance a medida.',
+        blurb: 'Red privada, controles multi-tenant y artefactos de cumplimiento a medida.',
         items: ['Squad embebido', 'SLAs personalizados', 'Revisiones de seguridad y soporte pentest'],
       },
     ],
@@ -68,7 +70,7 @@ export function PricingPage() {
         name: 'Escala',
         price: '$48k',
         cadence: 'pagament únic + $8k/mes',
-        blurb: 'Multiagent amb memòria + retrieval, hooks CI d’avaluació, rotació on-call.',
+        blurb: 'Multiagent amb memòria + recuperació, hooks CI d’avaluació, rotació on-call.',
         items: ['Tot el de Llançament', "Orquestració + pack de govern", 'Escalat per Slack/email'],
         featured: true,
       },
@@ -76,7 +78,7 @@ export function PricingPage() {
         name: 'Enterprise',
         price: 'Personalitzat',
         cadence: 'anual',
-        blurb: 'Xarxa privada, controls multi-tenant, artefactes de compliance a mida.',
+        blurb: 'Xarxa privada, controls multi-tenant i artefactes de compliment a mida.',
         items: ['Squad integrat', 'SLAs personalitzats', 'Revisions de seguretat i suport pentest'],
       },
     ],
@@ -88,6 +90,17 @@ export function PricingPage() {
   }[locale]
   return (
     <div className="space-y-12" data-no-auto-translate="true">
+      <Seo
+        title={locale === 'en' ? 'AI Pricing | amanita.barcelona' : locale === 'es' ? 'Precios IA | amanita.barcelona' : 'Preus IA | amanita.barcelona'}
+        description={
+          locale === 'en'
+            ? 'Pricing bands for launch, scale, and enterprise AI agent programs.'
+            : locale === 'es'
+              ? 'Bandas de precios para programas de agentes IA en lanzamiento, escala y enterprise.'
+              : "Franges de preus per a programes d'agents IA en llançament, escala i enterprise."
+        }
+        path="/pricing"
+      />
       <header className="text-center">
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{t('pricing.title')}</h1>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
@@ -145,6 +158,8 @@ export function PricingPage() {
           ))}
         </ul>
       </section>
+
+      <HighIntentCtaStrip />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Outlet, useLocation } from 'react-router-dom'
 import { translateDocument } from '../i18n/autoTranslate'
 import { hasLocaleCoverage } from '../i18n/coverage'
@@ -24,6 +25,26 @@ export function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'amanita.barcelona',
+            url: 'https://amanita.barcelona',
+            logo: 'https://amanita.barcelona/favicon.svg',
+            sameAs: ['https://github.com/yorgopetsas/amanita-solutions'],
+            contactPoint: [
+              {
+                '@type': 'ContactPoint',
+                contactType: 'sales',
+                url: 'https://amanita.barcelona/contact',
+                availableLanguage: ['en', 'es', 'ca'],
+              },
+            ],
+          })}
+        </script>
+      </Helmet>
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <motion.div
           aria-hidden
