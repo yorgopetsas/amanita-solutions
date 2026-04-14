@@ -30,6 +30,11 @@ jobs:
 
       - name: Build site
         run: npm run build
+        env:
+          VITE_CALENDLY_URL: https://calendly.com/yorgopecas/discovery-call
+          VITE_LEAD_WEBHOOK_URL: https://eo24d7w9f19jqw1.m.pipedream.net
+          VITE_GA_ID: G-MSY0MHMWPV
+          VITE_PLAUSIBLE_DOMAIN: ''
 
       - name: Publish dist to gh-pages
         uses: peaceiris/actions-gh-pages@v4
