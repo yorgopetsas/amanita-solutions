@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { translateDocument } from '../i18n/autoTranslate'
 import { hasLocaleCoverage } from '../i18n/coverage'
 import { useI18n } from '../i18n/I18nProvider'
 import { trackPageView } from '../lib/analytics'
@@ -16,6 +17,10 @@ export function Layout() {
   useEffect(() => {
     trackPageView(location.pathname)
   }, [location.pathname])
+
+  useEffect(() => {
+    void translateDocument(locale)
+  }, [locale, location.pathname])
 
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
