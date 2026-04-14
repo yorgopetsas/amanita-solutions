@@ -1,18 +1,24 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, Bot, Shield, Workflow } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../../i18n/I18nProvider'
 
-function CtaRow() {
+function CtaRow({ locale }: { locale: 'en' | 'es' | 'ca' }) {
+  const copy = {
+    en: { sales: 'Contact sales', products: 'View products' },
+    es: { sales: 'Contactar ventas', products: 'Ver productos' },
+    ca: { sales: 'Contactar vendes', products: 'Veure productes' },
+  }[locale]
   return (
     <div className="mt-8 flex flex-wrap gap-3">
       <Link
         to="/contact"
         className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400"
       >
-        Contact sales <ArrowRight className="h-4 w-4" />
+        {copy.sales} <ArrowRight className="h-4 w-4" />
       </Link>
       <Link to="/products" className="inline-flex cursor-pointer items-center rounded-xl border border-indigo-200 bg-white px-5 py-3 text-sm font-semibold text-indigo-900 transition hover:border-indigo-400">
-        View products
+        {copy.products}
       </Link>
     </div>
   )
@@ -21,19 +27,55 @@ function CtaRow() {
 /** 1 — Indigo gateway (UI/UX Pro Max enterprise flat) */
 export function HomeVariant1() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      badge: 'Enterprise gateway',
+      title: 'Deploy an AI workforce that respects policy, brand, and data boundaries.',
+      body: 'Nexus Agents designs multi-agent systems with memory, retrieval, and governance—so operators ship outcomes, not experiments.',
+      cards: [
+        { t: 'Path selection', d: 'Pick industry + role journeys' },
+        { t: 'Agent roster', d: 'Specialists with clear ownership' },
+        { t: 'Trust layer', d: 'Audit, evals, approvals' },
+        { t: 'Fast landing', d: 'Live in days, iterate weekly' },
+      ],
+    },
+    es: {
+      badge: 'Puerta enterprise',
+      title: 'Despliega una fuerza de trabajo IA que respeta política, marca y límites de datos.',
+      body: 'Nexus Agents diseña sistemas multiagente con memoria, retrieval y gobernanza para entregar resultados, no experimentos.',
+      cards: [
+        { t: 'Selección de ruta', d: 'Elige recorridos por industria y rol' },
+        { t: 'Roster de agentes', d: 'Especialistas con ownership claro' },
+        { t: 'Capa de confianza', d: 'Auditoría, evals y aprobaciones' },
+        { t: 'Go-live rápido', d: 'En vivo en días, mejora semanal' },
+      ],
+    },
+    ca: {
+      badge: 'Porta enterprise',
+      title: 'Desplega una força de treball IA que respecta política, marca i límits de dades.',
+      body: 'Nexus Agents dissenya sistemes multiagent amb memòria, retrieval i governança per lliurar resultats, no experiments.',
+      cards: [
+        { t: 'Selecció de ruta', d: 'Tria recorreguts per indústria i rol' },
+        { t: "Roster d'agents", d: 'Especialistes amb ownership clar' },
+        { t: 'Capa de confiança', d: 'Auditoria, evals i aprovacions' },
+        { t: 'Go-live ràpid', d: 'En viu en dies, millora setmanal' },
+      ],
+    },
+  }[locale]
   return (
     <div className="space-y-6 font-[family-name:var(--font-sans)]">
       <section className="rounded-3xl bg-[#F5F3FF] p-8 ring-1 ring-indigo-100 sm:p-12">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600">Enterprise gateway</p>
+            <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600">{copy.badge}</p>
             <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-semibold leading-tight text-[#1E1B4B] sm:text-5xl">
-              Deploy an AI workforce that respects policy, brand, and data boundaries.
+              {copy.title}
             </h1>
             <p className="mt-4 text-lg text-slate-600">
-              Nexus Agents designs multi-agent systems with memory, retrieval, and governance—so operators ship outcomes, not experiments.
+              {copy.body}
             </p>
-            <CtaRow />
+            <CtaRow locale={locale} />
           </div>
           <motion.div
             className="grid grid-cols-2 gap-4"
@@ -41,10 +83,10 @@ export function HomeVariant1() {
             animate={{ opacity: 1, y: 0 }}
           >
             {[
-              { icon: Workflow, t: 'Path selection', d: 'Pick industry + role journeys' },
-              { icon: Bot, t: 'Agent roster', d: 'Specialists with clear ownership' },
-              { icon: Shield, t: 'Trust layer', d: 'Audit, evals, approvals' },
-              { icon: ArrowRight, t: 'Fast landing', d: 'Live in days, iterate weekly' },
+              { icon: Workflow, ...copy.cards[0] },
+              { icon: Bot, ...copy.cards[1] },
+              { icon: Shield, ...copy.cards[2] },
+              { icon: ArrowRight, ...copy.cards[3] },
             ].map((c, i) => (
               <div key={c.t} className="rounded-2xl border border-indigo-100 bg-white p-4">
                 <c.icon className="h-6 w-6 text-indigo-500" aria-hidden />
@@ -65,6 +107,30 @@ export function HomeVariant1() {
 /** 2 — Neon noir */
 export function HomeVariant2() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      badge: 'Autonomous ops',
+      title: 'Agents that run your playbooks while you sleep.',
+      body: 'Prospect, research, draft, and execute—with traces, budgets, and kill switches wired in from day one.',
+      cta1: 'Deploy agents',
+      cta2: 'Model routes',
+    },
+    es: {
+      badge: 'Ops autónomas',
+      title: 'Agentes que ejecutan tus playbooks mientras duermes.',
+      body: 'Prospección, research, redacción y ejecución con trazas, presupuestos y kill switches desde el día uno.',
+      cta1: 'Desplegar agentes',
+      cta2: 'Rutas de modelo',
+    },
+    ca: {
+      badge: 'Ops autònomes',
+      title: 'Agents que executen els teus playbooks mentre dorms.',
+      body: 'Prospecció, research, redacció i execució amb traces, pressupostos i kill switches des del dia u.',
+      cta1: 'Desplegar agents',
+      cta2: 'Rutes de model',
+    },
+  }[locale]
   return (
     <div className="-mx-6 space-y-6 rounded-3xl bg-gradient-to-b from-slate-950 via-slate-900 to-black px-6 py-10 text-white ring-1 ring-cyan-500/20 sm:-mx-0 sm:px-10">
       <div className="relative overflow-hidden rounded-2xl border border-cyan-500/30 bg-slate-950/80 p-8 shadow-[0_0_80px_-20px_rgba(34,211,238,0.45)] sm:p-12">
@@ -75,19 +141,19 @@ export function HomeVariant2() {
           transition={{ duration: 6, repeat: Infinity }}
         />
         <div className="relative max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Autonomous ops</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">{copy.badge}</p>
           <h1 className="mt-3 font-[family-name:var(--font-syne)] text-4xl font-bold leading-tight sm:text-5xl">
-            Agents that run your playbooks while you sleep.
+            {copy.title}
           </h1>
           <p className="mt-4 text-lg text-slate-300">
-            Prospect, research, draft, and execute—with traces, budgets, and kill switches wired in from day one.
+            {copy.body}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact" className="cursor-pointer rounded-xl bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-300">
-              Deploy agents
+              {copy.cta1}
             </Link>
             <Link to="/platforms/openai" className="cursor-pointer rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-              Model routes
+              {copy.cta2}
             </Link>
           </div>
         </div>
@@ -99,18 +165,45 @@ export function HomeVariant2() {
 /** 3 — Solar flare warm */
 export function HomeVariant3() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      title: 'AI teammates with empathy, memory, and taste.',
+      body: 'We build agents that sound like your brand, remember your customers, and escalate gracefully when uncertainty spikes.',
+      bullets: ['Human handoff paths', 'Brand voice reinforcement', 'Delightful UI surfaces'],
+      cta: 'Read client stories',
+      pulse: 'Live pulse',
+      metric: 'Tickets resolved without escalation this week (demo metric).',
+    },
+    es: {
+      title: 'Compañeros IA con empatía, memoria y criterio.',
+      body: 'Construimos agentes que suenan como tu marca, recuerdan a tus clientes y escalan con elegancia cuando sube la incertidumbre.',
+      bullets: ['Rutas de handoff humano', 'Refuerzo de voz de marca', 'Superficies UI agradables'],
+      cta: 'Leer casos de clientes',
+      pulse: 'Pulso en vivo',
+      metric: 'Tickets resueltos sin escalado esta semana (métrica demo).',
+    },
+    ca: {
+      title: 'Companys IA amb empatia, memòria i criteri.',
+      body: 'Construïm agents que sonen com la teva marca, recorden clients i escalen amb elegància quan puja la incertesa.',
+      bullets: ['Rutes de handoff humà', 'Reforç de veu de marca', 'Superfícies UI agradables'],
+      cta: 'Llegir casos de clients',
+      pulse: 'Pols en viu',
+      metric: 'Tickets resolts sense escalat aquesta setmana (mètrica demo).',
+    },
+  }[locale]
   return (
     <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 p-8 ring-1 ring-amber-100 sm:p-12">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <h1 className="font-[family-name:var(--font-serif-display)] text-4xl font-semibold leading-tight text-amber-950 sm:text-[2.75rem]">
-            AI teammates with empathy, memory, and taste.
+            {copy.title}
           </h1>
           <p className="mt-4 text-lg text-amber-900/80">
-            We build agents that sound like your brand, remember your customers, and escalate gracefully when uncertainty spikes.
+            {copy.body}
           </p>
           <motion.ul className="mt-6 space-y-3 text-amber-950/90" initial="hidden" animate="show" variants={reduce ? undefined : { show: { transition: { staggerChildren: 0.08 } }, hidden: {} }}>
-            {['Human handoff paths', 'Brand voice reinforcement', 'Delightful UI surfaces'].map((t) => (
+            {copy.bullets.map((t) => (
               <motion.li key={t} variants={reduce ? undefined : { hidden: { opacity: 0, x: -8 }, show: { opacity: 1, x: 0 } }} className="flex items-center gap-2 text-sm font-medium">
                 <span className="h-2 w-2 rounded-full bg-rose-500" />
                 {t}
@@ -118,7 +211,7 @@ export function HomeVariant3() {
             ))}
           </motion.ul>
           <Link to="/testimonials" className="mt-8 inline-flex cursor-pointer rounded-full bg-rose-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-rose-500">
-            Read client stories
+            {copy.cta}
           </Link>
         </div>
         <motion.div
@@ -126,9 +219,9 @@ export function HomeVariant3() {
           whileHover={reduce ? undefined : { rotate: -1, scale: 1.01 }}
         >
           <div className="flex h-full flex-col justify-between rounded-[1.8rem] bg-white/90 p-6 backdrop-blur">
-            <p className="text-sm font-semibold text-rose-700">Live pulse</p>
+            <p className="text-sm font-semibold text-rose-700">{copy.pulse}</p>
             <p className="font-[family-name:var(--font-display)] text-3xl font-semibold text-slate-900">94%</p>
-            <p className="text-sm text-slate-600">Tickets resolved without escalation this week (demo metric).</p>
+            <p className="text-sm text-slate-600">{copy.metric}</p>
           </div>
         </motion.div>
       </div>
@@ -138,16 +231,22 @@ export function HomeVariant3() {
 
 /** 4 — Brutalist mono */
 export function HomeVariant4() {
+  const { locale } = useI18n()
+  const copy = {
+    en: { title1: 'Ship agents.', title2: 'Skip theatre.', body: 'Strategy, integration, evals. No vague “AI transformation” decks—executable systems with owners and SLOs.', cta: 'SEE_PRICING' },
+    es: { title1: 'Entrega agentes.', title2: 'Sin teatro.', body: 'Estrategia, integración y evals. Sin decks vagos de “transformación IA”, solo sistemas ejecutables con owners y SLOs.', cta: 'VER_PRECIOS' },
+    ca: { title1: 'Lliura agents.', title2: 'Sense teatre.', body: "Estratègia, integració i evals. Sense decks vagues de “transformació IA”, només sistemes executables amb owners i SLOs.", cta: 'VEURE_PREUS' },
+  }[locale]
   return (
     <section className="rounded-none border-4 border-black bg-white p-8 sm:p-12">
       <p className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase">Nexus_agents // v2</p>
       <h1 className="mt-4 font-[family-name:var(--font-mono)] text-4xl font-semibold uppercase leading-none sm:text-6xl">
-        Ship agents.
+        {copy.title1}
         <br />
-        Skip theatre.
+        {copy.title2}
       </h1>
       <p className="mt-6 max-w-xl font-[family-name:var(--font-mono)] text-sm leading-relaxed">
-        Strategy, integration, evals. No vague “AI transformation” decks—executable systems with owners and SLOs.
+        {copy.body}
       </p>
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {['MEMORY', 'TOOLS', 'POLICY'].map((t) => (
@@ -157,7 +256,7 @@ export function HomeVariant4() {
         ))}
       </div>
       <Link to="/pricing" className="mt-8 inline-block cursor-pointer border-2 border-black bg-black px-6 py-3 font-[family-name:var(--font-mono)] text-sm font-semibold text-white transition hover:bg-white hover:text-black">
-        SEE_PRICING
+        {copy.cta}
       </Link>
     </section>
   )
@@ -166,6 +265,30 @@ export function HomeVariant4() {
 /** 5 — Glass aurora */
 export function HomeVariant5() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      title: 'Crystal-clear agent UX for demanding teams.',
+      body: 'Glass surfaces, legible hierarchy, and motion that respects reduced-motion settings—enterprise polish without the clutter.',
+      cta: 'Explore Mesh Connect',
+      stack: 'Stack preview',
+      labels: ['Retrieval', 'Planning', 'Tool calls', 'Human review'],
+    },
+    es: {
+      title: 'UX de agentes nítida para equipos exigentes.',
+      body: 'Superficies glass, jerarquía legible y motion respetuoso con accesibilidad para un acabado enterprise sin ruido.',
+      cta: 'Explorar Mesh Connect',
+      stack: 'Preview del stack',
+      labels: ['Retrieval', 'Planificación', 'Tool calls', 'Revisión humana'],
+    },
+    ca: {
+      title: 'UX d’agents nítida per a equips exigents.',
+      body: 'Superfícies glass, jerarquia llegible i motion respectuós amb accessibilitat per a un acabat enterprise sense soroll.',
+      cta: 'Explorar Mesh Connect',
+      stack: 'Preview del stack',
+      labels: ['Retrieval', 'Planificació', 'Tool calls', 'Revisió humana'],
+    },
+  }[locale]
   return (
     <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-100 via-white to-violet-100 p-8 ring-1 ring-sky-200/80 sm:p-12">
       <motion.div
@@ -181,19 +304,19 @@ export function HomeVariant5() {
       <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
         <div className="rounded-3xl border border-white/70 bg-white/70 p-8 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/40">
           <h1 className="font-[family-name:var(--font-outfit)] text-4xl font-semibold text-slate-900 dark:text-white sm:text-5xl">
-            Crystal-clear agent UX for demanding teams.
+            {copy.title}
           </h1>
           <p className="mt-4 text-slate-600 dark:text-slate-300">
-            Glass surfaces, legible hierarchy, and motion that respects reduced-motion settings—enterprise polish without the clutter.
+            {copy.body}
           </p>
           <Link to="/products/connect-mcp" className="mt-6 inline-flex cursor-pointer rounded-2xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-500">
-            Explore Mesh Connect
+            {copy.cta}
           </Link>
         </div>
         <div className="rounded-3xl border border-white/60 bg-white/50 p-6 backdrop-blur-md dark:border-white/10 dark:bg-slate-900/30">
-          <p className="text-xs font-semibold uppercase text-slate-500">Stack preview</p>
+          <p className="text-xs font-semibold uppercase text-slate-500">{copy.stack}</p>
           <div className="mt-4 space-y-3">
-            {['Retrieval', 'Planning', 'Tool calls', 'Human review'].map((label, i) => (
+            {copy.labels.map((label, i) => (
               <motion.div
                 key={label}
                 className="flex items-center justify-between rounded-2xl bg-white/80 px-4 py-3 text-sm font-medium text-slate-800 shadow-sm dark:bg-slate-800/80 dark:text-slate-100"

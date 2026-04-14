@@ -3,54 +3,142 @@ import { ArrowRight, CalendarDays, GraduationCap, MapPin, Sparkles } from 'lucid
 import { Link } from 'react-router-dom'
 import { useI18n } from '../../i18n/I18nProvider'
 
-const events = [
-  {
-    slug: 'ai-summit-barcelona-2026',
-    title: 'AI Summit Barcelona 2026',
-    desc: "Europe's biggest AI event hosted in Barcelona.",
-    img: 'https://ai-summit-barcelona-public.b-cdn.net/og-image.jpg',
-    imgAlt: 'AI Summit Barcelona official visual',
-  },
-  {
-    slug: 'mobile-world-congress',
-    title: 'World Mobile Congress',
-    desc: 'Global technology and connectivity conference at Fira Barcelona.',
-    img: 'https://event-assets.gsma.com/_1200x630_crop_center-center_82_none/mwc-barcelona-press-zone-video-cameras-700x467.jpg?mtime=1750068067',
-    imgAlt: 'MWC official press visual',
-  },
-  {
-    slug: '4yfn-startup-event',
-    title: '4YFN startup event',
-    desc: 'Startup, investor, and innovation ecosystem gathering co-located with MWC.',
-    img: 'https://event-assets.gsma.com/4YFN/logos/_1200x630_crop_center-center_82_none/4yfn-logo-card-800x533.jpg?mtime=1750066362',
-    imgAlt: '4YFN official event visual',
-  },
-]
-
-const education = [
-  {
-    name: 'Universitat de Barcelona',
-    focus: 'AI, data science, and advanced research programs.',
-    img: 'https://web.ub.edu/documents/2685349/2697071/Edifici+fa%C3%A7ana+3.jpg/3cfe6e4c-f823-4ee2-2025-b54e1f3eeb07?version=2.1&t=1734081965180&imagePreview=1',
-    imgAlt: 'Universitat de Barcelona historic building',
-  },
-  {
-    name: 'Universitat Politècnica de Catalunya',
-    focus: 'Engineering pathways in machine learning and systems.',
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Barcelona_-_Universidad_Polit%C3%A9cnica_de_Catalu%C3%B1a_(UPC)_-_Campus_Norte_1.jpg',
-    imgAlt: 'Universitat Politècnica de Catalunya campus',
-  },
-  {
-    name: 'Barcelona Tech Academies',
-    focus: 'Bootcamps and short programs for AI practitioners and teams.',
-    img: 'https://www.42network.org/wp-content/uploads/2021/04/WEB42NETWORK-BARCELONA-1-min.png',
-    imgAlt: '42 Barcelona academy campus',
-  },
-]
-
 export function HomeAmanita() {
   const reduce = useReducedMotion()
   const { locale } = useI18n()
+  const eventsByLocale = {
+    en: [
+      {
+        slug: 'ai-summit-barcelona-2026',
+        title: 'AI Summit Barcelona 2026',
+        desc: "Europe's biggest AI event hosted in Barcelona, bringing 10,000+ attendees, 200+ speakers, and two days of demos, keynotes, and practical AI use cases.",
+        img: 'https://ai-summit-barcelona-public.b-cdn.net/og-image.jpg',
+        imgAlt: 'AI Summit Barcelona official visual',
+      },
+      {
+        slug: 'mobile-world-congress',
+        title: 'World Mobile Congress',
+        desc: 'The world-leading connectivity conference at Fira Gran Via where telecom infrastructure, devices, and enterprise AI adoption roadmaps meet at scale.',
+        img: 'https://event-assets.gsma.com/_1200x630_crop_center-center_82_none/mwc-barcelona-press-zone-video-cameras-700x467.jpg?mtime=1750068067',
+        imgAlt: 'MWC official press visual',
+      },
+      {
+        slug: '4yfn-startup-event',
+        title: '4YFN startup event',
+        desc: 'MWC startup platform focused on funding, investor matchmaking, and startup visibility for founders building AI-native products in Europe.',
+        img: 'https://event-assets.gsma.com/4YFN/logos/_1200x630_crop_center-center_82_none/4yfn-logo-card-800x533.jpg?mtime=1750066362',
+        imgAlt: '4YFN official event visual',
+      },
+    ],
+    es: [
+      {
+        slug: 'ai-summit-barcelona-2026',
+        title: 'AI Summit Barcelona 2026',
+        desc: 'El mayor evento de IA en Europa, con más de 10.000 asistentes, más de 200 ponentes y dos días centrados en demos, tracks prácticos y ejecución real.',
+        img: 'https://ai-summit-barcelona-public.b-cdn.net/og-image.jpg',
+        imgAlt: 'Visual oficial de AI Summit Barcelona',
+      },
+      {
+        slug: 'mobile-world-congress',
+        title: 'World Mobile Congress',
+        desc: 'La conferencia global de conectividad en Fira Gran Via, donde convergen infraestructura telecom, dispositivos y adopción enterprise de IA.',
+        img: 'https://event-assets.gsma.com/_1200x630_crop_center-center_82_none/mwc-barcelona-press-zone-video-cameras-700x467.jpg?mtime=1750068067',
+        imgAlt: 'Visual oficial de prensa de MWC',
+      },
+      {
+        slug: '4yfn-startup-event',
+        title: 'Evento startup 4YFN',
+        desc: 'Plataforma startup de MWC enfocada en inversión, conexiones con VCs y visibilidad internacional para productos IA de nueva generación.',
+        img: 'https://event-assets.gsma.com/4YFN/logos/_1200x630_crop_center-center_82_none/4yfn-logo-card-800x533.jpg?mtime=1750066362',
+        imgAlt: 'Visual oficial del evento 4YFN',
+      },
+    ],
+    ca: [
+      {
+        slug: 'ai-summit-barcelona-2026',
+        title: 'AI Summit Barcelona 2026',
+        desc: "L'esdeveniment d'IA més gran d'Europa, amb més de 10.000 assistents, més de 200 ponents i dos dies centrats en demos i execució real.",
+        img: 'https://ai-summit-barcelona-public.b-cdn.net/og-image.jpg',
+        imgAlt: 'Visual oficial de AI Summit Barcelona',
+      },
+      {
+        slug: 'mobile-world-congress',
+        title: 'World Mobile Congress',
+        desc: "La conferència global de connectivitat a Fira Gran Via, on convergeixen infraestructura telecom, dispositius i adopció enterprise d'IA.",
+        img: 'https://event-assets.gsma.com/_1200x630_crop_center-center_82_none/mwc-barcelona-press-zone-video-cameras-700x467.jpg?mtime=1750068067',
+        imgAlt: 'Visual oficial de premsa de MWC',
+      },
+      {
+        slug: '4yfn-startup-event',
+        title: 'Esdeveniment startup 4YFN',
+        desc: "Plataforma startup de MWC enfocada en inversió, connexions amb VCs i visibilitat internacional per a productes d'IA de nova generació.",
+        img: 'https://event-assets.gsma.com/4YFN/logos/_1200x630_crop_center-center_82_none/4yfn-logo-card-800x533.jpg?mtime=1750066362',
+        imgAlt: 'Visual oficial de 4YFN',
+      },
+    ],
+  }[locale]
+  const educationByLocale = {
+    en: [
+      {
+        name: 'Universitat de Barcelona',
+        focus: 'Public university with strong research groups in AI, data science, and computational disciplines connected to Barcelona’s innovation ecosystem.',
+        img: 'https://web.ub.edu/documents/2685349/2697071/Edifici+fa%C3%A7ana+3.jpg/3cfe6e4c-f823-4ee2-2025-b54e1f3eeb07?version=2.1&t=1734081965180&imagePreview=1',
+        imgAlt: 'Universitat de Barcelona historic building',
+      },
+      {
+        name: 'Universitat Politècnica de Catalunya',
+        focus: 'Engineering-focused university with leading programs in machine learning, systems, and applied technology for industry.',
+        img: '/upc-university.jpg',
+        imgAlt: 'Universitat Politècnica de Catalunya campus',
+      },
+      {
+        name: 'Barcelona Tech Academies',
+        focus: 'Practice-first academies like 42 Barcelona offering peer-to-peer, project-based pathways for AI and software talent development.',
+        img: 'https://www.42network.org/wp-content/uploads/2021/04/WEB42NETWORK-BARCELONA-1-min.png',
+        imgAlt: '42 Barcelona academy campus',
+      },
+    ],
+    es: [
+      {
+        name: 'Universitat de Barcelona',
+        focus: 'Universidad pública con grupos sólidos de investigación en IA, ciencia de datos y disciplinas computacionales ligadas al ecosistema de innovación local.',
+        img: 'https://web.ub.edu/documents/2685349/2697071/Edifici+fa%C3%A7ana+3.jpg/3cfe6e4c-f823-4ee2-2025-b54e1f3eeb07?version=2.1&t=1734081965180&imagePreview=1',
+        imgAlt: 'Edificio histórico de la Universitat de Barcelona',
+      },
+      {
+        name: 'Universitat Politècnica de Catalunya',
+        focus: 'Universidad orientada a ingeniería con programas líderes en machine learning, sistemas y tecnología aplicada a industria.',
+        img: '/upc-university.jpg',
+        imgAlt: 'Campus de la Universitat Politècnica de Catalunya',
+      },
+      {
+        name: 'Academias tech de Barcelona',
+        focus: 'Academias prácticas como 42 Barcelona, con metodologías peer-to-peer y proyectos reales para talento digital y perfiles IA.',
+        img: 'https://www.42network.org/wp-content/uploads/2021/04/WEB42NETWORK-BARCELONA-1-min.png',
+        imgAlt: 'Campus de la academia 42 Barcelona',
+      },
+    ],
+    ca: [
+      {
+        name: 'Universitat de Barcelona',
+        focus: "Universitat pública amb grups de recerca sòlids en IA, ciència de dades i disciplines computacionals connectades amb l'ecosistema local d'innovació.",
+        img: 'https://web.ub.edu/documents/2685349/2697071/Edifici+fa%C3%A7ana+3.jpg/3cfe6e4c-f823-4ee2-2025-b54e1f3eeb07?version=2.1&t=1734081965180&imagePreview=1',
+        imgAlt: 'Edifici històric de la Universitat de Barcelona',
+      },
+      {
+        name: 'Universitat Politècnica de Catalunya',
+        focus: "Universitat enfocada en enginyeria amb programes líders en machine learning, sistemes i tecnologia aplicada a indústria.",
+        img: '/upc-university.jpg',
+        imgAlt: 'Campus de la Universitat Politècnica de Catalunya',
+      },
+      {
+        name: 'Acadèmies tech de Barcelona',
+        focus: 'Acadèmies pràctiques com 42 Barcelona, amb metodologies peer-to-peer i projectes reals per a talent digital i perfils IA.',
+        img: 'https://www.42network.org/wp-content/uploads/2021/04/WEB42NETWORK-BARCELONA-1-min.png',
+        imgAlt: 'Campus de l’acadèmia 42 Barcelona',
+      },
+    ],
+  }[locale]
   const copy = {
     en: {
       badge: 'Amanita Barcelona',
@@ -126,7 +214,7 @@ export function HomeAmanita() {
         </div>
         <p className="max-w-3xl text-stone-600">{copy.eventsBody}</p>
         <div className="grid gap-5 md:grid-cols-3">
-          {events.map((event) => (
+          {eventsByLocale.map((event) => (
             <article key={event.title} className="overflow-hidden rounded-2xl border border-stone-200 bg-white">
               <img src={event.img} alt={event.imgAlt} className="h-40 w-full object-cover" loading="lazy" />
               <div className="p-5">
@@ -152,7 +240,7 @@ export function HomeAmanita() {
         </div>
         <p className="max-w-3xl text-stone-600">{copy.educationBody}</p>
         <div className="grid gap-5 md:grid-cols-3">
-          {education.map((item) => (
+          {educationByLocale.map((item) => (
             <article key={item.name} className="overflow-hidden rounded-2xl border border-stone-200 bg-white">
               <img src={item.img} alt={item.imgAlt} className="h-40 w-full object-cover" loading="lazy" />
               <div className="p-5">

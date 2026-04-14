@@ -1,10 +1,35 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, Brain, Cable, Database, GitBranch, Network, Search, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../../i18n/I18nProvider'
 
 /** 6 — Liquid neural bloom (AI brain metaphor) */
 export function HomeVariant6() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      badge: 'Neural bloom',
+      title: 'Intelligence that moves like thought-fluid, continuous, adaptive.',
+      body: 'A living core represents your agent: retrieval, planning, and action flowing without brittle seams.',
+      cta1: 'See orchestration',
+      cta2: 'Memory architecture',
+    },
+    es: {
+      badge: 'Flor neural',
+      title: 'Inteligencia que se mueve como el pensamiento: fluida, continua y adaptable.',
+      body: 'Un núcleo vivo representa tu agente: retrieval, planificación y acción sin costuras frágiles.',
+      cta1: 'Ver orquestación',
+      cta2: 'Arquitectura de memoria',
+    },
+    ca: {
+      badge: 'Flor neural',
+      title: 'Intel·ligència que es mou com el pensament: fluida, contínua i adaptable.',
+      body: 'Un nucli viu representa el teu agent: retrieval, planificació i acció sense costures fràgils.',
+      cta1: 'Veure orquestració',
+      cta2: 'Arquitectura de memòria',
+    },
+  }[locale]
   return (
     <section className="relative overflow-hidden rounded-3xl bg-[#0b0221] px-6 py-16 text-white sm:px-12">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,0.35),transparent_45%),radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.3),transparent_40%)]" />
@@ -12,20 +37,20 @@ export function HomeVariant6() {
         <div>
           <p className="inline-flex items-center gap-2 text-sm font-medium text-fuchsia-200">
             <Brain className="h-4 w-4" aria-hidden />
-            Neural bloom
+            {copy.badge}
           </p>
           <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-semibold leading-tight sm:text-5xl">
-            Intelligence that moves like thought—fluid, continuous, adaptive.
+            {copy.title}
           </h1>
           <p className="mt-4 text-lg text-violet-100/90">
-            A living core represents your agent: retrieval, planning, and action flowing without brittle seams.
+            {copy.body}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/products/orchestrator" className="cursor-pointer rounded-xl bg-fuchsia-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-400">
-              See orchestration
+              {copy.cta1}
             </Link>
             <Link to="/products/memory-layer" className="cursor-pointer rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-              Memory architecture
+              {copy.cta2}
             </Link>
           </div>
         </div>
@@ -89,6 +114,27 @@ const anatomy = [
 /** 7 — Human body + agent sections */
 export function HomeVariant7() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      caption: 'Agent anatomy mapped to human scale',
+      title: 'Your agent stack, articulated like a living system.',
+      body: 'Memory at the core, retrieval as senses, planning as motor control, tools as limbs, and multi-agent routing as the nervous network.',
+      cta: 'Browse capability products',
+    },
+    es: {
+      caption: 'Anatomía de agentes a escala humana',
+      title: 'Tu stack de agentes articulado como un sistema vivo.',
+      body: 'Memoria en el núcleo, retrieval como sentidos, planificación como control motor, tools como extremidades y routing multiagente como red nerviosa.',
+      cta: 'Ver productos de capacidades',
+    },
+    ca: {
+      caption: "Anatomia d'agents a escala humana",
+      title: "El teu stack d'agents articulat com un sistema viu.",
+      body: 'Memòria al nucli, retrieval com a sentits, planificació com a control motor, tools com a extremitats i routing multiagent com a xarxa nerviosa.',
+      cta: 'Veure productes de capacitats',
+    },
+  }[locale]
   return (
     <section className="rounded-3xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-8 dark:border-slate-800 dark:from-slate-950 dark:to-slate-900 sm:p-12">
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -138,14 +184,14 @@ export function HomeVariant7() {
               transition={{ duration: 3.1, repeat: Infinity, delay: 0.6 }}
             />
           </svg>
-          <p className="mt-4 text-center text-xs font-medium uppercase tracking-wide text-slate-500">Agent anatomy mapped to human scale</p>
+          <p className="mt-4 text-center text-xs font-medium uppercase tracking-wide text-slate-500">{copy.caption}</p>
         </div>
         <div>
           <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white sm:text-5xl">
-            Your agent stack, articulated like a living system.
+            {copy.title}
           </h1>
           <p className="mt-3 text-lg text-slate-600 dark:text-slate-300">
-            Memory at the core, retrieval as senses, planning as motor control, tools as limbs, and multi-agent routing as the nervous network.
+            {copy.body}
           </p>
           <ul className="mt-8 space-y-4">
             {anatomy.map((item, i) => (
@@ -168,7 +214,7 @@ export function HomeVariant7() {
             ))}
           </ul>
           <Link to="/products" className="mt-8 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-teal-700 hover:underline dark:text-teal-300">
-            Browse capability products <ArrowRight className="h-4 w-4" />
+            {copy.cta} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
@@ -179,6 +225,12 @@ export function HomeVariant7() {
 /** 8 — Bento pop */
 export function HomeVariant8() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: { title: 'Bento storytelling for complex agent platforms.', body: 'Color blocks, crisp copy, and motion reveal-perfect for demos and board-ready narratives.', cta: 'View case study tiles (demo)' },
+    es: { title: 'Storytelling bento para plataformas de agentes complejas.', body: 'Bloques de color, copy claro y motion para demos y narrativas listas para dirección.', cta: 'Ver mosaico de casos (demo)' },
+    ca: { title: "Storytelling bento per a plataformes d'agents complexes.", body: 'Blocs de color, copy clar i motion per a demos i narratives llestes per direcció.', cta: 'Veure mosaic de casos (demo)' },
+  }[locale]
   const tiles = [
     { c: 'from-violet-500 to-indigo-600', t: 'Fleet health', d: 'Latency, cost, quality in one pane.' },
     { c: 'from-amber-400 to-orange-500', t: 'Playbooks', d: 'Reusable agent recipes per team.' },
@@ -188,8 +240,8 @@ export function HomeVariant8() {
   return (
     <section className="space-y-6">
       <div className="rounded-3xl bg-slate-950 p-8 text-white sm:p-10">
-        <h1 className="max-w-3xl font-[family-name:var(--font-outfit)] text-4xl font-semibold sm:text-5xl">Bento storytelling for complex agent platforms.</h1>
-        <p className="mt-3 max-w-2xl text-slate-300">Color blocks, crisp copy, and motion reveal—perfect for demos and board-ready narratives.</p>
+        <h1 className="max-w-3xl font-[family-name:var(--font-outfit)] text-4xl font-semibold sm:text-5xl">{copy.title}</h1>
+        <p className="mt-3 max-w-2xl text-slate-300">{copy.body}</p>
       </div>
       <div className="grid gap-4 md:grid-cols-4">
         {tiles.map((tile, i) => (
@@ -208,7 +260,7 @@ export function HomeVariant8() {
       </div>
       <div className="rounded-2xl border border-dashed border-slate-300 p-6 text-center dark:border-slate-700">
         <Link to="/case-studies" className="cursor-pointer text-sm font-semibold text-violet-600 hover:underline dark:text-violet-300">
-          View case study tiles (demo)
+          {copy.cta}
         </Link>
       </div>
     </section>
@@ -217,25 +269,31 @@ export function HomeVariant8() {
 
 /** 9 — Swiss minimal */
 export function HomeVariant9() {
+  const { locale } = useI18n()
+  const copy = {
+    en: { title: 'Autonomy, articulated.', body: 'We design and operate agent systems for teams who want measurable throughput-not slide decks.', about: 'About', pricing: 'Pricing', contact: 'Contact' },
+    es: { title: 'Autonomía, articulada.', body: 'Diseñamos y operamos sistemas de agentes para equipos que buscan throughput medible, no solo presentaciones.', about: 'Sobre nosotros', pricing: 'Precios', contact: 'Contacto' },
+    ca: { title: 'Autonomia, articulada.', body: "Dissenyem i operem sistemes d'agents per a equips que busquen throughput mesurable, no només presentacions.", about: 'Sobre nosaltres', pricing: 'Preus', contact: 'Contacte' },
+  }[locale]
   return (
     <section className="border-y border-black bg-white py-16 dark:border-white dark:bg-black">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">Nexus Agents</p>
+        <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">amanita.barcelona</p>
         <h1 className="mt-6 font-[family-name:var(--font-instrument)] text-5xl font-normal leading-[1.05] text-slate-900 dark:text-white sm:text-6xl">
-          Autonomy, articulated.
+          {copy.title}
         </h1>
         <p className="mx-auto mt-6 max-w-xl font-[family-name:var(--font-sans)] text-base text-slate-600 dark:text-slate-300">
-          We design and operate agent systems for teams who want measurable throughput—not slide decks.
+          {copy.body}
         </p>
         <div className="mt-10 flex justify-center gap-8 text-sm">
           <Link to="/about" className="cursor-pointer border-b border-black pb-1 font-medium dark:border-white">
-            About
+            {copy.about}
           </Link>
           <Link to="/pricing" className="cursor-pointer border-b border-black pb-1 font-medium dark:border-white">
-            Pricing
+            {copy.pricing}
           </Link>
           <Link to="/contact" className="cursor-pointer border-b border-black pb-1 font-medium dark:border-white">
-            Contact
+            {copy.contact}
           </Link>
         </div>
       </div>
@@ -246,6 +304,33 @@ export function HomeVariant9() {
 /** 10 — Deep orbit premium */
 export function HomeVariant10() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      badge: 'Mission control',
+      title: 'Premium agent operations for regulated, global teams.',
+      body: 'Gold accents, disciplined typography, and motion that whispers instead of shouts-built for board rooms and CISO reviews.',
+      snap: 'Executive snapshot',
+      figures: 'Across 4 business units - demo figures',
+      cta: 'Review Sentinel Governance',
+    },
+    es: {
+      badge: 'Control de misión',
+      title: 'Operaciones premium de agentes para equipos globales y regulados.',
+      body: 'Acentos dorados, tipografía disciplinada y motion discreto para comités de dirección y revisiones CISO.',
+      snap: 'Resumen ejecutivo',
+      figures: 'En 4 unidades de negocio - cifras demo',
+      cta: 'Revisar Sentinel Governance',
+    },
+    ca: {
+      badge: 'Control de missió',
+      title: "Operacions premium d'agents per a equips globals i regulats.",
+      body: 'Accents daurats, tipografia disciplinada i motion discret per a comitès de direcció i revisions CISO.',
+      snap: 'Resum executiu',
+      figures: 'En 4 unitats de negoci - xifres demo',
+      cta: 'Revisar Sentinel Governance',
+    },
+  }[locale]
   return (
     <section className="relative overflow-hidden rounded-3xl bg-[#050816] px-6 py-16 text-white sm:px-14">
       <motion.div
@@ -256,12 +341,12 @@ export function HomeVariant10() {
       />
       <div className="relative grid gap-10 lg:grid-cols-2 lg:items-end">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-200/90">Mission control</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-200/90">{copy.badge}</p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-semibold leading-tight sm:text-[2.75rem]">
-            Premium agent operations for regulated, global teams.
+            {copy.title}
           </h1>
           <p className="mt-4 text-slate-300">
-            Gold accents, disciplined typography, and motion that whispers instead of shouts—built for board rooms and CISO reviews.
+            {copy.body}
           </p>
         </div>
         <motion.div
@@ -270,11 +355,11 @@ export function HomeVariant10() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm text-amber-100/90">Executive snapshot</p>
+          <p className="text-sm text-amber-100/90">{copy.snap}</p>
           <p className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold">12 agents</p>
-          <p className="text-sm text-slate-400">Across 4 business units • demo figures</p>
+          <p className="text-sm text-slate-400">{copy.figures}</p>
           <Link to="/products/governance" className="mt-4 inline-flex cursor-pointer text-sm font-semibold text-amber-200 hover:underline">
-            Review Sentinel Governance
+            {copy.cta}
           </Link>
         </motion.div>
       </div>

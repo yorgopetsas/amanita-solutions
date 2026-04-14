@@ -2,12 +2,13 @@ import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, Palette } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { TrustStrip } from '../../components/TrustStrip'
-import { homeThemes } from '../../data/homeThemes'
+import { getLocalizedHomeTheme, homeThemes } from '../../data/homeThemes'
 import { useI18n } from '../../i18n/I18nProvider'
 
 export function HomeGallery() {
   const reduce = useReducedMotion()
   const { locale, t } = useI18n()
+  const localizedThemes = homeThemes.map((theme) => getLocalizedHomeTheme(theme, locale))
   const copy = {
     en: { theme: 'Theme', open: 'Open full homepage' },
     es: { theme: 'Tema', open: 'Abrir homepage completa' },
@@ -41,7 +42,7 @@ export function HomeGallery() {
       <TrustStrip />
 
       <section className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {homeThemes.map((h, i) => (
+        {localizedThemes.map((h, i) => (
           <motion.article
             key={h.id}
             initial={reduce ? false : { opacity: 0, y: 12 }}

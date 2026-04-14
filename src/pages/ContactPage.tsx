@@ -30,10 +30,7 @@ export function ContactPage() {
   return (
     <div className="mx-auto max-w-xl space-y-6" data-no-auto-translate="true">
       <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{t('contact.title')}</h1>
-      <p className="text-slate-600 dark:text-slate-300">
-        {t('contact.body')} <code className="rounded bg-slate-100 px-1 dark:bg-slate-800">VITE_LEAD_WEBHOOK_URL</code> +{' '}
-        <code className="rounded bg-slate-100 px-1 dark:bg-slate-800">VITE_CALENDLY_URL</code>.
-      </p>
+      <p className="text-slate-600 dark:text-slate-300">{t('contact.body')}</p>
       <a
         href={bookingUrl}
         target="_blank"

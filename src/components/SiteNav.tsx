@@ -2,7 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { homeThemes } from '../data/homeThemes'
+import { getLocalizedHomeTheme, homeThemes } from '../data/homeThemes'
 import { products } from '../data/products'
 import { platforms } from '../data/platforms'
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -109,7 +109,9 @@ export function SiteNav({ variant = 'light' }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mega, setMega] = useState<MegaKey | null>(null)
   const reduceMotion = useReducedMotion()
-  const { t } = useI18n()
+  const { locale, t } = useI18n()
+  const logoName = 'amanita.barcelona'
+  const localizedThemes = homeThemes.map((theme) => getLocalizedHomeTheme(theme, locale))
 
   useEffect(() => {
     if (!mega) return
@@ -142,7 +144,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-500 text-sm font-bold text-white shadow-md shadow-violet-500/30">
             Nx
           </span>
-          Nexus Agents
+          {logoName}
         </Link>
       </motion.div>
 
@@ -327,7 +329,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           triggerContent={t('nav.homeThemes')}
         >
           <ul className="max-h-80 space-y-1 overflow-y-auto pr-1">
-            {homeThemes.map((h, i) => (
+            {localizedThemes.map((h, i) => (
               <motion.li
                 key={h.id}
                 initial={reduceMotion ? false : { opacity: 0, x: 6 }}
