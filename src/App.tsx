@@ -45,6 +45,8 @@ import { DesignLabPage } from './pages/studio/DesignLabPage'
 import { MotionStudioPage } from './pages/studio/MotionStudioPage'
 import { SystemsPage } from './pages/studio/SystemsPage'
 import { ShowreelPage } from './pages/ShowreelPage'
+import { EventsIndexPage } from './pages/events/EventsIndexPage'
+import { EventDetailPage } from './pages/events/EventDetailPage'
 
 export default function App() {
   return (
@@ -94,6 +96,8 @@ export default function App() {
         <Route path="studio/components" element={<ComponentsPage />} />
         <Route path="studio/collaborate" element={<CollaboratePage />} />
         <Route path="showreel" element={<ShowreelPage />} />
+        <Route path="events" element={<EventsIndexPage />} />
+        <Route path="events/:slug" element={<EventDetailPage />} />
         <Route path="home" element={<Navigate to="/" replace />} />
         <Route path="*" element={<NotFound />} />
       </Route>

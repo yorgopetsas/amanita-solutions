@@ -5,19 +5,25 @@ import { useI18n } from '../../i18n/I18nProvider'
 
 const events = [
   {
-    title: 'Barcelona AI Week',
-    desc: 'Talks, demos, and founder meetups focused on practical AI systems.',
-    imgAlt: 'Placeholder for Barcelona AI event photo',
+    slug: 'ai-summit-barcelona-2026',
+    title: 'AI Summit Barcelona 2026',
+    desc: "Europe's biggest AI event hosted in Barcelona.",
+    img: 'https://ai-summit-barcelona-public.b-cdn.net/og-image.jpg',
+    imgAlt: 'AI Summit Barcelona official visual',
   },
   {
-    title: 'Applied Agents Meetup',
-    desc: 'Monthly operator sessions on retrieval, evaluation, and production reliability.',
-    imgAlt: 'Placeholder for local AI meetup photo',
+    slug: 'mobile-world-congress',
+    title: 'World Mobile Congress',
+    desc: 'Global technology and connectivity conference at Fira Barcelona.',
+    img: 'https://event-assets.gsma.com/_1200x630_crop_center-center_82_none/mwc-barcelona-press-zone-video-cameras-700x467.jpg?mtime=1750068067',
+    imgAlt: 'MWC official press visual',
   },
   {
-    title: 'Enterprise AI Roundtable',
-    desc: 'Private sessions for C-level and operations leaders adopting AI workflows.',
-    imgAlt: 'Placeholder for executive AI roundtable photo',
+    slug: '4yfn-startup-event',
+    title: '4YFN startup event',
+    desc: 'Startup, investor, and innovation ecosystem gathering co-located with MWC.',
+    img: 'https://event-assets.gsma.com/4YFN/logos/_1200x630_crop_center-center_82_none/4yfn-logo-card-800x533.jpg?mtime=1750066362',
+    imgAlt: '4YFN official event visual',
   },
 ]
 
@@ -25,17 +31,20 @@ const education = [
   {
     name: 'Universitat de Barcelona',
     focus: 'AI, data science, and advanced research programs.',
-    imgAlt: 'Placeholder for university campus photo',
+    img: 'https://web.ub.edu/documents/2685349/2697071/Edifici+fa%C3%A7ana+3.jpg/3cfe6e4c-f823-4ee2-2025-b54e1f3eeb07?version=2.1&t=1734081965180&imagePreview=1',
+    imgAlt: 'Universitat de Barcelona historic building',
   },
   {
     name: 'Universitat Politècnica de Catalunya',
     focus: 'Engineering pathways in machine learning and systems.',
-    imgAlt: 'Placeholder for technical university photo',
+    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Barcelona_-_Universidad_Polit%C3%A9cnica_de_Catalu%C3%B1a_(UPC)_-_Campus_Norte_1.jpg',
+    imgAlt: 'Universitat Politècnica de Catalunya campus',
   },
   {
     name: 'Barcelona Tech Academies',
     focus: 'Bootcamps and short programs for AI practitioners and teams.',
-    imgAlt: 'Placeholder for AI academy classroom photo',
+    img: 'https://www.42network.org/wp-content/uploads/2021/04/WEB42NETWORK-BARCELONA-1-min.png',
+    imgAlt: '42 Barcelona academy campus',
   },
 ]
 
@@ -53,7 +62,6 @@ export function HomeAmanita() {
       eventsBody: 'Amanita.barcelona keeps your roadmap connected to the local AI ecosystem and practical operator community.',
       educationTitle: 'AI education opportunities',
       educationBody: 'Universities and academies across Barcelona create a strong talent and learning pipeline for AI teams.',
-      photoLabel: 'Photo placeholder',
       oldHome: 'Open previous homepage gallery (home-12)',
     },
     es: {
@@ -66,7 +74,6 @@ export function HomeAmanita() {
       eventsBody: 'Amanita.barcelona conecta tu roadmap con el ecosistema local de IA y su comunidad práctica de operadores.',
       educationTitle: 'Oportunidades educativas en IA',
       educationBody: 'Universidades y academias de Barcelona crean un pipeline sólido de talento y aprendizaje para equipos de IA.',
-      photoLabel: 'Espacio para foto',
       oldHome: 'Abrir homepage anterior (home-12)',
     },
     ca: {
@@ -79,7 +86,6 @@ export function HomeAmanita() {
       eventsBody: "Amanita.barcelona connecta el teu roadmap amb l'ecosistema local d’IA i la comunitat pràctica d’operadors.",
       educationTitle: "Oportunitats educatives d'IA",
       educationBody: "Universitats i acadèmies de Barcelona creen un pipeline sòlid de talent i aprenentatge per a equips d'IA.",
-      photoLabel: 'Espai per foto',
       oldHome: 'Obrir homepage anterior (home-12)',
     },
   }[locale]
@@ -122,9 +128,7 @@ export function HomeAmanita() {
         <div className="grid gap-5 md:grid-cols-3">
           {events.map((event) => (
             <article key={event.title} className="overflow-hidden rounded-2xl border border-stone-200 bg-white">
-              <div className="flex h-40 items-center justify-center bg-stone-100 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                {copy.photoLabel}
-              </div>
+              <img src={event.img} alt={event.imgAlt} className="h-40 w-full object-cover" loading="lazy" />
               <div className="p-5">
                 <h3 className="font-semibold text-stone-900">{event.title}</h3>
                 <p className="mt-2 text-sm text-stone-600">{event.desc}</p>
@@ -132,6 +136,9 @@ export function HomeAmanita() {
                   <MapPin className="h-3.5 w-3.5" aria-hidden />
                   {event.imgAlt}
                 </p>
+                <Link to={`/events/${event.slug}`} className="mt-3 inline-block text-sm font-semibold text-amber-700 hover:underline">
+                  {locale === 'es' ? 'Ver evento' : locale === 'ca' ? 'Veure esdeveniment' : 'View event'}
+                </Link>
               </div>
             </article>
           ))}
@@ -147,9 +154,7 @@ export function HomeAmanita() {
         <div className="grid gap-5 md:grid-cols-3">
           {education.map((item) => (
             <article key={item.name} className="overflow-hidden rounded-2xl border border-stone-200 bg-white">
-              <div className="flex h-40 items-center justify-center bg-stone-100 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                {copy.photoLabel}
-              </div>
+              <img src={item.img} alt={item.imgAlt} className="h-40 w-full object-cover" loading="lazy" />
               <div className="p-5">
                 <h3 className="font-semibold text-stone-900">{item.name}</h3>
                 <p className="mt-2 text-sm text-stone-600">{item.focus}</p>

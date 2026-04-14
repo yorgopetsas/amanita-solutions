@@ -11,7 +11,7 @@ import { useI18n } from '../i18n/I18nProvider'
 const linkBase =
   'rounded-lg px-3 py-2 text-sm font-medium transition-colors cursor-pointer'
 
-type MegaKey = 'products' | 'platforms' | 'solutions' | 'studio' | 'homes' | 'explore'
+type MegaKey = 'products' | 'platforms' | 'events' | 'solutions' | 'studio' | 'homes' | 'explore'
 
 type NavProps = {
   variant?: 'light' | 'dark' | 'transparent'
@@ -211,6 +211,40 @@ export function SiteNav({ variant = 'light' }: NavProps) {
               </motion.li>
             ))}
           </ul>
+        </NavDropdown>
+
+        <NavDropdown
+          id="events"
+          mega={mega}
+          setMega={setMega}
+          align="left"
+          panelClassName="w-[min(92vw,24rem)]"
+          triggerContent={t('nav.events')}
+        >
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{t('nav.eventsCategory')}</p>
+          <ul className="space-y-1 text-sm">
+            {[
+              ['/events/ai-summit-barcelona-2026', t('nav.aiSummit')],
+              ['/events/mobile-world-congress', t('nav.mwc')],
+              ['/events/4yfn-startup-event', t('nav.yfn')],
+              ['/events/barcelona-ai-week', t('nav.aiWeek')],
+              ['/events/applied-agents-meetup', t('nav.appliedMeetup')],
+              ['/events/enterprise-ai-roundtable', t('nav.enterpriseRoundtable')],
+            ].map(([to, label]) => (
+              <li key={to}>
+                <Link
+                  to={to}
+                  className="block cursor-pointer rounded-lg px-2 py-1.5 transition-colors hover:bg-violet-50 dark:hover:bg-slate-800"
+                  onClick={() => setMega(null)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link to="/events" className="mt-3 block text-sm font-semibold text-violet-600 hover:underline dark:text-violet-300" onClick={() => setMega(null)}>
+            {t('nav.eventsAll')}
+          </Link>
         </NavDropdown>
 
         <NavDropdown
@@ -466,6 +500,9 @@ export function SiteNav({ variant = 'light' }: NavProps) {
               <Link to="/platforms" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
                 {t('nav.platforms')}
               </Link>
+              <Link to="/events" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
+                {t('nav.events')}
+              </Link>
               <p className={`px-2 pt-3 text-xs font-semibold uppercase ${muted}`}>{t('nav.solutions')}</p>
               <Link to="/solutions/freelancers" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
                 {t('nav.freelancersSolos')}
@@ -545,7 +582,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
                 className="mt-2 cursor-pointer rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 py-3 text-center text-sm font-semibold text-white shadow-md"
                 onClick={() => setMobileOpen(false)}
               >
-                Book a call
+                {t('nav.bookCall')}
               </Link>
             </div>
           </motion.div>
