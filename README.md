@@ -1,4 +1,4 @@
-# Nexus Agents Site
+# amanita.barcelona site
 
 Marketing + pre-launch operating site for an AI agents agency (React + TypeScript + Vite + Tailwind + Motion).
 

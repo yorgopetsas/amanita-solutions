@@ -32,7 +32,7 @@ export function HomeVariant1() {
     en: {
       badge: 'Enterprise gateway',
       title: 'Deploy an AI workforce that respects policy, brand, and data boundaries.',
-      body: 'Nexus Agents designs multi-agent systems with memory, retrieval, and governance—so operators ship outcomes, not experiments.',
+      body: 'amanita designs multi-agent systems with memory, retrieval, and governance—so operators ship outcomes, not experiments.',
       cards: [
         { t: 'Path selection', d: 'Pick industry + role journeys' },
         { t: 'Agent roster', d: 'Specialists with clear ownership' },
@@ -43,7 +43,7 @@ export function HomeVariant1() {
     es: {
       badge: 'Puerta enterprise',
       title: 'Despliega una fuerza de trabajo IA que respeta política, marca y límites de datos.',
-      body: 'Nexus Agents diseña sistemas multiagente con memoria, retrieval y gobernanza para entregar resultados, no experimentos.',
+      body: 'amanita diseña sistemas multiagente con memoria, retrieval y gobernanza para entregar resultados, no experimentos.',
       cards: [
         { t: 'Selección de ruta', d: 'Elige recorridos por industria y rol' },
         { t: 'Roster de agentes', d: 'Especialistas con ownership claro' },
@@ -54,7 +54,7 @@ export function HomeVariant1() {
     ca: {
       badge: 'Porta enterprise',
       title: 'Desplega una força de treball IA que respecta política, marca i límits de dades.',
-      body: 'Nexus Agents dissenya sistemes multiagent amb memòria, retrieval i governança per lliurar resultats, no experiments.',
+      body: 'amanita dissenya sistemes multiagent amb memòria, retrieval i governança per lliurar resultats, no experiments.',
       cards: [
         { t: 'Selecció de ruta', d: 'Tria recorreguts per indústria i rol' },
         { t: "Roster d'agents", d: 'Especialistes amb ownership clar' },
@@ -239,7 +239,7 @@ export function HomeVariant4() {
   }[locale]
   return (
     <section className="rounded-none border-4 border-black bg-white p-8 sm:p-12">
-      <p className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase">Nexus_agents // v2</p>
+      <p className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase">amanita_barcelona // v2</p>
       <h1 className="mt-4 font-[family-name:var(--font-mono)] text-4xl font-semibold uppercase leading-none sm:text-6xl">
         {copy.title1}
         <br />

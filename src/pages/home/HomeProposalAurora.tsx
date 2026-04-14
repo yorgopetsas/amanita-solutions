@@ -95,7 +95,7 @@ export function HomeProposalAurora() {
                   <p className="text-xs font-semibold uppercase tracking-wide text-cyan-200">Live control room</p>
                   <Orbit className="h-14 w-14 text-fuchsia-300" aria-hidden />
                   <div className="space-y-2">
-                    <p className="font-[family-name:var(--font-display)] text-3xl font-semibold">Nexus Core</p>
+                    <p className="font-[family-name:var(--font-display)] text-3xl font-semibold">Amanita Core</p>
                     <p className="text-sm text-slate-300">Orchestrates memory, retrieval, planning, and multi-agent handoffs in one fluid UI.</p>
                   </div>
                 </div>

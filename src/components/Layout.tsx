@@ -27,7 +27,7 @@ export function Layout() {
             '@type': 'Organization',
             name: 'amanita.barcelona',
             url: 'https://amanita.barcelona',
-            logo: 'https://amanita.barcelona/favicon.svg',
+            logo: 'https://amanita.barcelona/amanita-logo.png',
             sameAs: ['https://github.com/yorgopetsas/amanita-solutions'],
             contactPoint: [
               {

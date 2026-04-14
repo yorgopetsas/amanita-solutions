@@ -37,7 +37,7 @@ export function MotionStudioPage() {
         <p className="mt-6 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
           Editorial rhythm borrowed from{' '}
           <a href="https://nexusstudios.com/motion-design/" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
-            Nexus Studios — Motion Design
+            External motion design reference
           </a>
           —applied to traces, handoffs, and “title sequences” for your agent brand.
         </p>

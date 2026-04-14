@@ -5,7 +5,7 @@ export function AboutPage() {
   const { locale } = useI18n()
   const copy = {
     en: {
-      title: 'About Nexus Agents',
+      title: 'About amanita.barcelona',
       body: 'We are a demo studio site showing how an AI agents agency can structure products, platform briefs, multiple homepage narratives, and conversion paths (pricing, testimonials, chat).',
       principles: 'Principles',
       p1: 'Outcome-owned delivery with evals, not open-ended "AI transformation."',
@@ -18,7 +18,7 @@ export function AboutPage() {
       tail: 'to see how positioning can flex by brand.',
     },
     es: {
-      title: 'Sobre Nexus Agents',
+      title: 'Sobre amanita.barcelona',
       body: 'Somos un sitio demo de estudio que muestra cómo una agencia de agentes IA puede estructurar productos, briefs de plataformas, múltiples narrativas de homepage y rutas de conversión (precios, testimonios, chat).',
       principles: 'Principios',
       p1: 'Entrega orientada a resultados con evals, no una "transformación IA" abierta.',
@@ -31,7 +31,7 @@ export function AboutPage() {
       tail: 'para ver cómo el posicionamiento puede adaptarse por marca.',
     },
     ca: {
-      title: 'Sobre Nexus Agents',
+      title: 'Sobre amanita.barcelona',
       body: "Som un lloc demo d'estudi que mostra com una agència d'agents IA pot estructurar productes, briefs de plataformes, múltiples narratives de homepage i camins de conversió (preus, testimonis, xat).",
       principles: 'Principis',
       p1: 'Lliurament orientat a resultats amb evals, no una "transformació IA" oberta.',

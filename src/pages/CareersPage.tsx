@@ -83,7 +83,7 @@ export function CareersPage() {
                 <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{r.blurb}</p>
               </div>
               <a
-                href="mailto:careers@nexusagents.example?subject=Application"
+                href="mailto:careers@amanita.barcelona?subject=Application"
                 className="shrink-0 cursor-pointer rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-violet-100"
               >
                 {copy.apply}

@@ -14,7 +14,7 @@ export function PlatformPage() {
       brief: 'Platform brief',
       strengths: 'Strengths',
       watchouts: 'Watchouts',
-      nexus: 'How Nexus shows up',
+      amanita: 'How Amanita shows up',
       review: 'Book architecture review',
       map: 'Map to products',
     },
@@ -22,7 +22,7 @@ export function PlatformPage() {
       brief: 'Brief de plataforma',
       strengths: 'Fortalezas',
       watchouts: 'Riesgos',
-      nexus: 'Cómo aparece Nexus',
+      amanita: 'Cómo aparece amanita',
       review: 'Reservar revisión de arquitectura',
       map: 'Mapear a productos',
     },
@@ -30,7 +30,7 @@ export function PlatformPage() {
       brief: 'Brief de plataforma',
       strengths: 'Fortaleses',
       watchouts: 'Riscos',
-      nexus: 'Com aterra Nexus',
+      amanita: 'Com aterra amanita',
       review: "Reservar revisió d'arquitectura",
       map: 'Mapar a productes',
     },
@@ -53,10 +53,10 @@ export function PlatformPage() {
             locale === 'es'
               ? platform.watchouts.map((w) => `Vigilar: ${w}`)
               : platform.watchouts.map((w) => `Vigilar: ${w}`),
-          nexusAngle:
+          amanitaAngle:
             locale === 'es'
-              ? `Nexus adapta este stack a tu contexto con métricas, guardrails y handoff operativo: ${platform.nexusAngle}`
-              : `Nexus adapta aquest stack al teu context amb mètriques, guardrails i handoff operatiu: ${platform.nexusAngle}`,
+              ? `amanita adapta este stack a tu contexto con métricas, guardrails y handoff operativo: ${platform.amanitaAngle}`
+              : `amanita adapta aquest stack al teu context amb mètriques, guardrails i handoff operatiu: ${platform.amanitaAngle}`,
         }
 
   return (
@@ -96,9 +96,9 @@ export function PlatformPage() {
       <section className="rounded-2xl border border-violet-200 bg-violet-50/60 p-6 dark:border-violet-900/50 dark:bg-violet-950/30">
         <h2 className="flex items-center gap-2 font-semibold text-slate-900 dark:text-violet-100">
           <Link2 className="h-5 w-5 text-violet-600 dark:text-violet-300" aria-hidden />
-          {copy.nexus}
+          {copy.amanita}
         </h2>
-        <p className="mt-3 text-slate-700 dark:text-slate-300">{localized.nexusAngle}</p>
+        <p className="mt-3 text-slate-700 dark:text-slate-300">{localized.amanitaAngle}</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link to="/contact" className="cursor-pointer rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-500">
             {copy.review}

@@ -30,7 +30,7 @@ export function SystemsPage() {
         <p className="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
           Motion-first thinking meets long-term partnerships—patterned after{' '}
           <a href="https://nexusstudios.com/design-studio/" className="font-medium text-violet-600 hover:underline dark:text-violet-300" target="_blank" rel="noreferrer">
-            Nexus Studios — Design Studio
+            External design studio reference
           </a>
           , reframed for interfaces where memory, tools, and policy are first-class.
         </p>

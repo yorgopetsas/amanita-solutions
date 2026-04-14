@@ -10,7 +10,10 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         <div>
-          <p className="font-[family-name:var(--font-display)] text-lg font-semibold text-slate-900 dark:text-white">amanita.barcelona</p>
+          <div className="flex items-center gap-3">
+            <img src="/amanita-logo.png" alt="" width={40} height={40} className="h-10 w-10 shrink-0 object-contain" decoding="async" />
+            <p className="font-[family-name:var(--font-display)] text-lg font-semibold text-slate-900 dark:text-white">amanita.barcelona</p>
+          </div>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
             An AI agents agency demo: strategy, build, and operate autonomous workflows across your stack.
           </p>
@@ -21,7 +24,7 @@ export function SiteFooter() {
             <a href="https://linkedin.com" className="cursor-pointer text-slate-500 transition hover:text-slate-800 dark:hover:text-white" aria-label="LinkedIn">
               <Network className="h-5 w-5" />
             </a>
-            <a href="mailto:hello@nexusagents.example" className="cursor-pointer text-slate-500 transition hover:text-slate-800 dark:hover:text-white" aria-label="Email">
+            <a href="mailto:hello@amanita.barcelona" className="cursor-pointer text-slate-500 transition hover:text-slate-800 dark:hover:text-white" aria-label="Email">
               <Mail className="h-5 w-5" />
             </a>
           </div>

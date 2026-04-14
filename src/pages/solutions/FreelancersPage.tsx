@@ -8,7 +8,7 @@ const pillars = [
     icon: Zap,
     title: 'Ship fast without cutting corners',
     body:
-      'Move quicker with agent blueprints, retrieval templates, and eval harnesses—while keeping the craftsmanship your clients expect. Nexus pairs repeatable patterns with room for bespoke policy and brand.',
+      'Move quicker with agent blueprints, retrieval templates, and eval harnesses—while keeping the craftsmanship your clients expect. amanita pairs repeatable patterns with room for bespoke policy and brand.',
   },
   {
     icon: Layers,
@@ -29,7 +29,7 @@ const stories = [
     name: 'Jordan Lee',
     role: 'Independent automation lead',
     quote:
-      'Before standardizing on Nexus-style playbooks, every client was a snowflake—and the context switching burned me out. Now I hand off runbooks clients can actually run, and I spend time on strategy again.',
+      'Before standardizing on Amanita-style playbooks, every client was a snowflake—and the context switching burned me out. Now I hand off runbooks clients can actually run, and I spend time on strategy again.',
   },
   {
     name: 'Priya Desai',
@@ -41,7 +41,7 @@ const stories = [
 
 const faq = [
   {
-    q: 'Can solo builders work with Nexus without a full agency bench?',
+    q: 'Can solo builders work with amanita without a full agency bench?',
     a: 'Yes. We often embed as architecture + review while you stay client-facing. You bring relationships; we bring agent patterns, security checklists, and integration depth.',
   },
   {
@@ -120,7 +120,7 @@ export function FreelancersPage() {
           transition={{ delay: 0.1 }}
         >
           As a freelancer or small practice, you strategize, integrate, and de-risk every week. Clients now expect faster launches, measurable outcomes, and safe autonomy—while you still need to win the next project.{' '}
-          <span className="text-white">Nexus helps you deliver high-impact agent systems, keep clients organized, and take on bolder work without burning out</span>—patterned after how modern platforms talk to independents (see{' '}
+          <span className="text-white">amanita helps you deliver high-impact agent systems, keep clients organized, and take on bolder work without burning out</span>—patterned after how modern platforms talk to independents (see{' '}
           <a href="https://webflow.com/solutions/freelancers" className="underline-offset-2 hover:underline" target="_blank" rel="noreferrer">
             Webflow for Freelancers
           </a>

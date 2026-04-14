@@ -11,7 +11,7 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: 'orchestrator',
-    name: 'Nexus Orchestrator',
+    name: 'Amanita Orchestrator',
     tagline: 'Multi-agent routing, handoffs, and guardrails in one control plane.',
     description:
       'Design supervisor patterns, delegate to specialists, and enforce policy across every conversation thread. Built for teams that outgrow single-prompt workflows.',

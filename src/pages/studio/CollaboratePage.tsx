@@ -47,7 +47,7 @@ export function CollaboratePage() {
       <section className="rounded-3xl border border-slate-200 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-900/60">
         <h2 className="font-semibold text-slate-900 dark:text-white">{copy.handoff}</h2>
         <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
-          <li>Transfer workspace ownership—or keep Nexus as guest in yours.</li>
+          <li>Transfer workspace ownership—or keep amanita as guest in yours.</li>
           <li>Scope client-safe CMS zones for RAG corpora updates.</li>
           <li>Document kill switches and on-call rotation.</li>
         </ol>

@@ -5,7 +5,7 @@ export type Platform = {
   summary: string
   strengths: string[]
   watchouts: string[]
-  nexusAngle: string
+  amanitaAngle: string
 }
 
 export const platforms: Platform[] = [
@@ -17,7 +17,7 @@ export const platforms: Platform[] = [
       'Best-in-class general reasoning with a mature API surface. We help you move from playground prompts to production-grade agents with evals and cost controls.',
     strengths: ['Broad model choice', 'Strong tool-use patterns', 'Large ecosystem'],
     watchouts: ['Rate limits and spend caps need design', 'Latency sensitivity for voice/realtime'],
-    nexusAngle: 'We blueprint agent roles, memory boundaries, and evaluation loops on top of OpenAI APIs.',
+    amanitaAngle: 'We blueprint agent roles, memory boundaries, and evaluation loops on top of OpenAI APIs.',
   },
   {
     slug: 'microsoft',
@@ -27,7 +27,7 @@ export const platforms: Platform[] = [
       'When Entra ID, private networking, and Microsoft 365 matter, Azure AI becomes the natural backbone. We wire agents into Teams, SharePoint, and Dataverse responsibly.',
     strengths: ['Enterprise contracts', 'Private endpoints', 'M365 graph context'],
     watchouts: ['Quotas vary by SKU', 'Multi-tenant patterns need care'],
-    nexusAngle: 'Landing patterns for Copilot Studio + custom agents with unified observability.',
+    amanitaAngle: 'Landing patterns for Copilot Studio + custom agents with unified observability.',
   },
   {
     slug: 'google',
@@ -37,7 +37,7 @@ export const platforms: Platform[] = [
       'Vertex gives you managed models plus search and analytics adjacency. We design retrieval that spans Drive, Gmail, and your warehouse without sprawl.',
     strengths: ['Multimodal', 'Search product depth', 'BigQuery federation'],
     watchouts: ['Grounding configs differ by surface', 'Org policy alignment'],
-    nexusAngle: 'Agent blueprints that pair Gemini with your Google Cloud data plane.',
+    amanitaAngle: 'Agent blueprints that pair Gemini with your Google Cloud data plane.',
   },
   {
     slug: 'anthropic',
@@ -47,7 +47,7 @@ export const platforms: Platform[] = [
       'Ideal for document-heavy processes, policy drafting, and multi-step reasoning with large prompts. We tune prompts, tools, and safety rails for regulated teams.',
     strengths: ['Long context', 'Strong writing quality', 'Thoughtful safety defaults'],
     watchouts: ['Cost at max context', 'Latency for huge prompts'],
-    nexusAngle: 'Specialist agents with artifact outputs, reviews, and human checkpoints.',
+    amanitaAngle: 'Specialist agents with artifact outputs, reviews, and human checkpoints.',
   },
   {
     slug: 'openclaw',
@@ -57,7 +57,7 @@ export const platforms: Platform[] = [
       'OpenClaw focuses on portable agent graphs and open connectors—great when you want to avoid vendor lock-in while still moving fast.',
     strengths: ['Composable graphs', 'Open connectors', 'Hackable core'],
     watchouts: ['You own more ops', 'Smaller managed surface than hyperscalers'],
-    nexusAngle: 'We harden OpenClaw deployments with auth, quotas, and production tracing.',
+    amanitaAngle: 'We harden OpenClaw deployments with auth, quotas, and production tracing.',
   },
   {
     slug: 'meta',
@@ -67,7 +67,7 @@ export const platforms: Platform[] = [
       'When data residency or unit economics dominate, Llama-class models shine. We help you pick sizes, fine-tune responsibly, and serve efficiently.',
     strengths: ['Deploy anywhere', 'Tunable cost curve', 'Active research community'],
     watchouts: ['Ops overhead', 'Evaluation burden shifts to you'],
-    nexusAngle: 'Reference stacks for vLLM/TGI, safety filters, and domain adaptation.',
+    amanitaAngle: 'Reference stacks for vLLM/TGI, safety filters, and domain adaptation.',
   },
   {
     slug: 'mistral',
@@ -77,7 +77,7 @@ export const platforms: Platform[] = [
       'Strong choice for EU-first programs needing credible data residency narratives without sacrificing capability.',
     strengths: ['EU footprint narrative', 'Efficient smaller models', 'Simple API ergonomics'],
     watchouts: ['Ecosystem smaller than US giants', 'Feature velocity varies'],
-    nexusAngle: 'Regional deployments with bilingual workflows and local compliance packs.',
+    amanitaAngle: 'Regional deployments with bilingual workflows and local compliance packs.',
   },
   {
     slug: 'amazon-bedrock',
@@ -87,7 +87,7 @@ export const platforms: Platform[] = [
       'Pick models from multiple vendors with IAM-native access. We integrate Bedrock Agents, Knowledge Bases, and your existing AWS data services.',
     strengths: ['Single AWS bill', 'PrivateLink patterns', 'Knowledge Bases product'],
     watchouts: ['Cross-region behavior', 'KB sync semantics'],
-    nexusAngle: 'Agent + Knowledge Base architectures with IaC and drift detection.',
+    amanitaAngle: 'Agent + Knowledge Base architectures with IaC and drift detection.',
   },
   {
     slug: 'cohere',
@@ -97,7 +97,7 @@ export const platforms: Platform[] = [
       'When retrieval quality is the bottleneck, Cohere rerank often pays for itself. We pair it with your vector store and observability.',
     strengths: ['Rerank quality', 'Embedding SKUs', 'Enterprise focus'],
     watchouts: ['Model matrix changes', 'Compare TCO vs bundled clouds'],
-    nexusAngle: 'Retrieval stacks with rerank-first design and offline eval suites.',
+    amanitaAngle: 'Retrieval stacks with rerank-first design and offline eval suites.',
   },
   {
     slug: 'xai',
@@ -107,7 +107,7 @@ export const platforms: Platform[] = [
       'Useful when you want diversification across providers or specific latency/cost profiles. We keep prompts portable and monitor quality drift.',
     strengths: ['Frontier experimentation', 'Provider diversification'],
     watchouts: ['Evolving enterprise surface', 'Comparative evals required'],
-    nexusAngle: 'Multi-provider routing with fallbacks and per-task eval dashboards.',
+    amanitaAngle: 'Multi-provider routing with fallbacks and per-task eval dashboards.',
   },
 ]
 

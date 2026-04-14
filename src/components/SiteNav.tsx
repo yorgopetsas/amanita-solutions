@@ -139,9 +139,14 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           to="/"
           className={`flex items-center gap-2 font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight ${logoText}`}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-500 text-sm font-bold text-white shadow-md shadow-violet-500/30">
-            Nx
-          </span>
+          <img
+            src="/amanita-logo.png"
+            alt=""
+            width={36}
+            height={36}
+            className="h-9 w-9 shrink-0 object-contain"
+            decoding="async"
+          />
           {logoName}
         </Link>
       </motion.div>
