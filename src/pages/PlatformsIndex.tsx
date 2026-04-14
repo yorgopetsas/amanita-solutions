@@ -61,16 +61,16 @@ export function PlatformsIndex() {
           }))
 
   const logos: Record<string, string> = {
-    openai: 'https://cdn.simpleicons.org/openai',
-    microsoft: 'https://cdn.simpleicons.org/microsoft',
-    google: 'https://cdn.simpleicons.org/google',
-    anthropic: 'https://cdn.simpleicons.org/anthropic',
-    openclaw: 'https://cdn.simpleicons.org/github',
-    meta: 'https://cdn.simpleicons.org/meta',
-    mistral: 'https://cdn.simpleicons.org/mistralai',
-    'amazon-bedrock': 'https://cdn.simpleicons.org/amazonwebservices',
-    cohere: 'https://cdn.simpleicons.org/cohere',
-    xai: 'https://cdn.simpleicons.org/x',
+    openai: '/platform-logos/openai.svg',
+    microsoft: '/platform-logos/microsoft.svg',
+    google: '/platform-logos/google.svg',
+    anthropic: '/platform-logos/anthropic.svg',
+    openclaw: '/platform-logos/openclaw.svg',
+    meta: '/platform-logos/meta.svg',
+    mistral: '/platform-logos/mistral.svg',
+    'amazon-bedrock': '/platform-logos/amazon-bedrock.svg',
+    cohere: '/platform-logos/cohere.svg',
+    xai: '/platform-logos/xai.svg',
   }
 
   return (
