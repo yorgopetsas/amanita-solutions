@@ -1,0 +1,1 @@
+var e=`https://eo24d7w9f19jqw1.m.pipedream.net`;async function t(t){return{ok:(await fetch(e,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(t)})).ok,mode:`live`}}function n(){return`https://calendly.com/yorgopecas/discovery-call`}export{t as n,n as t};
