@@ -4,6 +4,18 @@ const titles: Record<string, string> = {
   'support-triage': 'Support triage with human refunds gate',
   'research-copilot': 'Research copilot on private filings',
   'sales-outreach': 'Prospector agent with CRM hygiene',
+  'support-triage-proof': 'Support triage proof (pre-launch sample)',
+}
+
+const bodies: Record<string, string> = {
+  'support-triage':
+    'Workflow: classify incoming tickets, retrieve known fixes, draft response, and escalate refund-intent cases. Pilot result: lower first response time and stronger auditability for policy-sensitive paths.',
+  'research-copilot':
+    'Workflow: semantic retrieval over filings and internal notes, citation rendering, and analyst handoff. Pilot result: reduced repetitive research prep hours and faster briefing cycles.',
+  'sales-outreach':
+    'Workflow: account research, sequence drafting, CRM logging, and reply triage with human approval for final send. Pilot result: more qualified meetings with cleaner CRM hygiene.',
+  'support-triage-proof':
+    'Use this as your first public proof asset: 60-90 second demo recording, one architecture panel, and one KPI delta. Keep it concise and concrete.',
 }
 
 export function CaseStudyDetail() {
@@ -18,8 +30,11 @@ export function CaseStudyDetail() {
       </Link>
       <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-slate-900 dark:text-white">{title}</h1>
       <p className="text-slate-600 dark:text-slate-300">
-        Long-form narrative, architecture diagram, and metrics tables would live here. This route exists so you can wire CMS content or MDX later.
+        {slug ? bodies[slug] : ''}
       </p>
+      <div className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+        Tip: pair this page with the <Link to="/proof-kit" className="font-medium text-violet-600 hover:underline dark:text-violet-300">proof kit</Link> and embed a short demo recording.
+      </div>
     </article>
   )
 }

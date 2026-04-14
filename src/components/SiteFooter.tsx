@@ -152,8 +152,28 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/offers" className="cursor-pointer text-slate-700 hover:text-violet-600 dark:text-slate-300">
+                Offers
+              </Link>
+            </li>
+            <li>
+              <Link to="/proof-kit" className="cursor-pointer text-slate-700 hover:text-violet-600 dark:text-slate-300">
+                Proof kit
+              </Link>
+            </li>
+            <li>
               <Link to="/compare" className="cursor-pointer text-slate-700 hover:text-violet-600 dark:text-slate-300">
                 Compare
+              </Link>
+            </li>
+            <li>
+              <Link to="/prelaunch/content-cadence" className="cursor-pointer text-slate-700 hover:text-violet-600 dark:text-slate-300">
+                Content cadence
+              </Link>
+            </li>
+            <li>
+              <Link to="/prelaunch/outbound-playbook" className="cursor-pointer text-slate-700 hover:text-violet-600 dark:text-slate-300">
+                Outbound playbook
               </Link>
             </li>
             <li>

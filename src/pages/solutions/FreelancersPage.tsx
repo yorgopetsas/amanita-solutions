@@ -90,6 +90,9 @@ export function FreelancersPage() {
           <Link to="/contact" className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-violet-100">
             Start a partnership thread <ArrowRight className="h-4 w-4" />
           </Link>
+          <Link to="/offers" className="inline-flex cursor-pointer rounded-xl bg-violet-500/80 px-5 py-3 text-sm font-semibold text-white transition hover:bg-violet-400">
+            See 3 core offers
+          </Link>
           <Link to="/pricing" className="inline-flex cursor-pointer rounded-xl border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
             See illustrative pricing
           </Link>

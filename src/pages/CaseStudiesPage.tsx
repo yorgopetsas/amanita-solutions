@@ -4,6 +4,7 @@ const cases = [
   { slug: 'support-triage', title: 'Support triage with human refunds gate', kpi: 'CSAT +12 pts' },
   { slug: 'research-copilot', title: 'Research copilot on private filings', kpi: '40h/mo saved' },
   { slug: 'sales-outreach', title: 'Prospector agent with CRM hygiene', kpi: '3× qualified meetings' },
+  { slug: 'support-triage-proof', title: 'Support triage proof page (pre-launch)', kpi: '60-90s demo + KPI delta' },
 ]
 
 export function CaseStudiesPage() {

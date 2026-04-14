@@ -14,12 +14,17 @@ import { HomeProposalAurora } from './pages/home/HomeProposalAurora'
 import { IntegrationsPage } from './pages/IntegrationsPage'
 import { NewsletterPage } from './pages/NewsletterPage'
 import { NotFound } from './pages/NotFound'
+import { OffersPage } from './pages/OffersPage'
 import { PlatformPage } from './pages/PlatformPage'
 import { PlatformsIndex } from './pages/PlatformsIndex'
 import { PricingPage } from './pages/PricingPage'
 import { ProductPage } from './pages/ProductPage'
 import { ProductsIndex } from './pages/ProductsIndex'
+import { ProofCaseSupportPage } from './pages/ProofCaseSupportPage'
+import { ProofKitPage } from './pages/ProofKitPage'
 import { ResourcesIndex } from './pages/ResourcesIndex'
+import { ContentCadencePage } from './pages/ContentCadencePage'
+import { OutboundPlaybookPage } from './pages/OutboundPlaybookPage'
 import { EvalPlaybookPage } from './pages/resources/EvalPlaybookPage'
 import { GlossaryPage } from './pages/resources/GlossaryPage'
 import { RagChecklistPage } from './pages/resources/RagChecklistPage'
@@ -52,6 +57,7 @@ export default function App() {
         <Route path="platforms" element={<PlatformsIndex />} />
         <Route path="platforms/:slug" element={<PlatformPage />} />
         <Route path="pricing" element={<PricingPage />} />
+        <Route path="offers" element={<OffersPage />} />
         <Route path="testimonials" element={<TestimonialsPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<ContactPage />} />
@@ -65,6 +71,10 @@ export default function App() {
         <Route path="resources/rag-checklist" element={<RagChecklistPage />} />
         <Route path="resources/eval-playbook" element={<EvalPlaybookPage />} />
         <Route path="resources/glossary" element={<GlossaryPage />} />
+        <Route path="proof-kit" element={<ProofKitPage />} />
+        <Route path="proof/case-support-triage" element={<ProofCaseSupportPage />} />
+        <Route path="prelaunch/content-cadence" element={<ContentCadencePage />} />
+        <Route path="prelaunch/outbound-playbook" element={<OutboundPlaybookPage />} />
         <Route path="compare" element={<ComparePage />} />
         <Route path="careers" element={<CareersPage />} />
         <Route path="newsletter" element={<NewsletterPage />} />

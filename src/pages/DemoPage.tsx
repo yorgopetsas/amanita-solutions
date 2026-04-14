@@ -46,6 +46,9 @@ export function DemoPage() {
           <Link to="/contact" className="cursor-pointer rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white dark:bg-white dark:text-slate-900">
             Book live walkthrough
           </Link>
+          <Link to="/proof-kit" className="cursor-pointer rounded-xl border border-violet-300 px-4 py-2 text-sm font-semibold text-violet-700 dark:border-violet-700 dark:text-violet-300">
+            Demo recording kit
+          </Link>
         </div>
       </header>
 
@@ -101,7 +104,7 @@ export function DemoPage() {
             </div>
           </div>
           <p className="text-xs text-slate-500">
-            Tip: add a short Loom or MP4 behind a “Watch 90s demo” button for buyers who do not read traces.
+            Tip: use the proof kit to record a 60-90 second walkthrough and embed it on your case page.
           </p>
         </div>
       </div>

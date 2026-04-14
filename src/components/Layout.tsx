@@ -1,5 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { trackPageView } from '../lib/analytics'
 import { MagicChatDock } from './MagicChatDock'
 import { SiteFooter } from './SiteFooter'
 import { SiteNav } from './SiteNav'
@@ -7,6 +9,10 @@ import { SiteNav } from './SiteNav'
 export function Layout() {
   const location = useLocation()
   const reduce = useReducedMotion()
+
+  useEffect(() => {
+    trackPageView(location.pathname)
+  }, [location.pathname])
 
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">

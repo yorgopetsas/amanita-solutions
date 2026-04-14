@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { productizedOffers } from '../data/offers'
 
 const tiers = [
   {
@@ -34,6 +35,9 @@ export function PricingPage() {
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
           Illustrative bands modeled after public AI agency pages (deployment fees + monthly operation). Final scopes follow discovery.
         </p>
+        <Link to="/offers" className="mt-4 inline-block text-sm font-semibold text-violet-600 hover:underline dark:text-violet-300">
+          See productized offer ladder →
+        </Link>
       </header>
       <div className="grid gap-6 lg:grid-cols-3">
         {tiers.map((t) => (
@@ -70,6 +74,19 @@ export function PricingPage() {
           </div>
         ))}
       </div>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+        <h2 className="font-semibold text-slate-900 dark:text-white">Pre-launch offer pricing bands</h2>
+        <ul className="mt-4 grid gap-3 md:grid-cols-3">
+          {productizedOffers.map((offer) => (
+            <li key={offer.slug} className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/60">
+              <p className="font-medium text-slate-900 dark:text-white">{offer.name}</p>
+              <p className="mt-1 text-sm text-violet-700 dark:text-violet-300">{offer.priceBand}</p>
+              <p className="mt-1 text-xs text-slate-500">{offer.timeline}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   )
 }

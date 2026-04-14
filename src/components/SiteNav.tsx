@@ -347,9 +347,11 @@ export function SiteNav({ variant = 'light' }: NavProps) {
               <ul className="space-y-1 text-sm">
                 {[
                   ['/resources', 'Resources'],
+                  ['/offers', 'Offers'],
+                  ['/proof-kit', 'Proof kit'],
                   ['/compare', 'Compare options'],
-                  ['/careers', 'Careers'],
-                  ['/newsletter', 'Newsletter & tools'],
+                  ['/prelaunch/content-cadence', 'Content cadence'],
+                  ['/prelaunch/outbound-playbook', 'Outbound playbook'],
                 ].map(([to, label]) => (
                   <li key={to}>
                     <Link
@@ -510,14 +512,20 @@ export function SiteNav({ variant = 'light' }: NavProps) {
               <Link to="/resources" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
                 Resources
               </Link>
+              <Link to="/offers" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
+                Offers
+              </Link>
+              <Link to="/proof-kit" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
+                Proof kit
+              </Link>
               <Link to="/compare" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
                 Compare
               </Link>
-              <Link to="/careers" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Careers
+              <Link to="/prelaunch/content-cadence" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
+                Content cadence
               </Link>
-              <Link to="/newsletter" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Newsletter &amp; tools
+              <Link to="/prelaunch/outbound-playbook" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
+                Outbound playbook
               </Link>
               <Link to="/status" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
                 Status

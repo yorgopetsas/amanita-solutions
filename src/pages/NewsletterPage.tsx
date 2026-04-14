@@ -1,9 +1,24 @@
-import { useState } from 'react'
+import { type FormEvent, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FileDown, Mail, Sparkles } from 'lucide-react'
+import { submitLead } from '../lib/leadCapture'
+import { trackEvent } from '../lib/analytics'
 
 export function NewsletterPage() {
   const [ok, setOk] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form = new FormData(e.currentTarget)
+    const email = String(form.get('email') || '')
+    setLoading(true)
+    const result = await submitLead({ source: 'newsletter', email, message: 'newsletter-subscription' })
+    trackEvent('newsletter_subscribed', { mode: result.mode })
+    setLoading(false)
+    setOk(true)
+  }
+
   return (
     <div className="space-y-10">
       <header>
@@ -21,16 +36,10 @@ export function NewsletterPage() {
           </div>
           {ok ? (
             <p className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-100">
-              Thanks—hook this form to your ESP (Customer.io, HubSpot, etc.).
+              Thanks. Subscription captured (live webhook if configured, otherwise demo mode).
             </p>
           ) : (
-            <form
-              className="mt-4 space-y-3"
-              onSubmit={(e) => {
-                e.preventDefault()
-                setOk(true)
-              }}
-            >
+            <form className="mt-4 space-y-3" onSubmit={onSubmit}>
               <label htmlFor="nl-email" className="sr-only">
                 Email
               </label>
@@ -42,8 +51,12 @@ export function NewsletterPage() {
                 placeholder="you@company.com"
                 className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm dark:border-slate-600 dark:bg-slate-950"
               />
-              <button type="submit" className="w-full cursor-pointer rounded-xl bg-violet-600 py-2.5 text-sm font-semibold text-white transition hover:bg-violet-500">
-                Join the list
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full cursor-pointer rounded-xl bg-violet-600 py-2.5 text-sm font-semibold text-white transition hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {loading ? 'Submitting...' : 'Join the list'}
               </button>
             </form>
           )}
@@ -70,6 +83,16 @@ export function NewsletterPage() {
             <li>
               <Link to="/resources/rag-checklist" className="font-medium text-violet-700 hover:underline dark:text-violet-300">
                 RAG checklist (on-site)
+              </Link>
+            </li>
+            <li>
+              <Link to="/prelaunch/content-cadence" className="font-medium text-violet-700 hover:underline dark:text-violet-300">
+                8-week content cadence
+              </Link>
+            </li>
+            <li>
+              <Link to="/prelaunch/outbound-playbook" className="font-medium text-violet-700 hover:underline dark:text-violet-300">
+                Outbound playbook
               </Link>
             </li>
           </ul>

@@ -20,6 +20,24 @@ const guides = [
     desc: 'Shared language for memory, tools, planning, and multi-agent patterns.',
     icon: BookOpen,
   },
+  {
+    to: '/proof-kit',
+    title: 'Proof kit',
+    desc: 'Demo recording script + case-page template for pre-launch credibility.',
+    icon: FileStack,
+  },
+  {
+    to: '/prelaunch/content-cadence',
+    title: 'Content cadence',
+    desc: '8-week posting plan with two posts per week and reusable templates.',
+    icon: GraduationCap,
+  },
+  {
+    to: '/prelaunch/outbound-playbook',
+    title: 'Outbound playbook',
+    desc: 'Weekly outreach loop, templates, and KPI tracker columns.',
+    icon: BookOpen,
+  },
 ]
 
 export function ResourcesIndex() {
