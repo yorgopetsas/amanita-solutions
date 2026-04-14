@@ -1,17 +1,68 @@
 import { Link } from 'react-router-dom'
 import { platforms } from '../data/platforms'
+import { useI18n } from '../i18n/I18nProvider'
 
 export function PlatformsIndex() {
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      title: 'Platforms & model families',
+      body: 'Ten focused briefs on the stacks clients ask about most—what they are strong at, what to watch, and how Nexus meets you there.',
+    },
+    es: {
+      title: 'Plataformas y familias de modelos',
+      body: 'Diez briefs enfocados sobre los stacks que más piden los clientes: fortalezas, riesgos y cómo Nexus aterriza en cada uno.',
+    },
+    ca: {
+      title: 'Plataformes i famílies de models',
+      body: 'Deu briefs enfocats sobre els stacks que més demanen els clients: fortaleses, riscos i com Nexus aterra a cadascun.',
+    },
+  }[locale]
+
+  const localized =
+    locale === 'en'
+      ? platforms
+      : locale === 'es'
+        ? platforms.map((pl) => ({
+            ...pl,
+            headline: {
+              openai: 'Modelos GPT, Assistants y el stack emergente de agentes.',
+              microsoft: 'Azure AI, extensibilidad de Copilot e identidad enterprise.',
+              google: 'Gemini, Vertex AI Search y respuestas con base en BigQuery.',
+              anthropic: 'Claude para workflows de contexto largo y tool use cuidadoso.',
+              openclaw: 'Runtime abierto para agentes encadenados y servidores comunitarios.',
+              meta: 'Pesos abiertos para on-prem, air-gapped y rutas de coste optimizado.',
+              mistral: 'Opcionalidad europea con latencia y pricing competitivos.',
+              'amazon-bedrock': 'Marketplace de modelos dentro de los límites de tu cuenta AWS.',
+              cohere: 'Embeddings, rerank y ergonomía enterprise para retrieval.',
+              xai: 'Alternativa frontier para equipos que experimentan nuevos stacks.',
+            }[pl.slug] ?? pl.headline,
+          }))
+        : platforms.map((pl) => ({
+            ...pl,
+            headline: {
+              openai: "Models GPT, Assistants i l'stack emergent d'agents.",
+              microsoft: "Azure AI, extensibilitat de Copilot i identitat enterprise.",
+              google: 'Gemini, Vertex AI Search i respostes fonamentades en BigQuery.',
+              anthropic: "Claude per a workflows de context llarg i tool use curós.",
+              openclaw: 'Runtime obert per a agents encadenats i servidors comunitaris.',
+              meta: 'Pesos oberts per a on-prem, air-gapped i rutes de cost optimitzat.',
+              mistral: 'Opcionalitat europea amb latència i pricing competitius.',
+              'amazon-bedrock': "Marketplace de models dins els límits del teu compte AWS.",
+              cohere: 'Embeddings, rerank i ergonomia enterprise per a retrieval.',
+              xai: 'Alternativa frontier per a equips que experimenten nous stacks.',
+            }[pl.slug] ?? pl.headline,
+          }))
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">Platforms & model families</h1>
+        <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{copy.title}</h1>
         <p className="mt-3 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-          Ten focused briefs on the stacks clients ask about most—what they are strong at, what to watch, and how Nexus meets you there.
+          {copy.body}
         </p>
       </header>
       <ul className="grid gap-4 sm:grid-cols-2">
-        {platforms.map((pl) => (
+        {localized.map((pl) => (
           <li key={pl.slug}>
             <Link
               to={`/platforms/${pl.slug}`}
