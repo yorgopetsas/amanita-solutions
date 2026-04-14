@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useI18n } from '../i18n/I18nProvider'
 
 const calendar = [
   { week: 'Week 1', insight: 'Post: 3 mistakes when teams launch agents too early', teardown: 'Teardown: support triage workflow map' },
@@ -12,13 +13,55 @@ const calendar = [
 ]
 
 export function ContentCadencePage() {
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      badge: 'Pre-launch publishing',
+      title: '2-posts-per-week content cadence',
+      body: 'One insight post and one practical teardown every week. This creates authority without requiring daily posting.',
+      week: 'Week',
+      insight: 'Insight post',
+      teardown: 'Teardown post',
+      insightTemplate: 'Post template: Insight',
+      teardownTemplate: 'Post template: Teardown',
+      channel: 'For channel execution, publish long-form on LinkedIn and repurpose a shorter version for X/community channels. Tie each post back to your offer page and one proof asset.',
+      proof: 'Open proof kit',
+      offers: 'Open offers',
+    },
+    es: {
+      badge: 'Publicación pre-lanzamiento',
+      title: 'Cadencia de contenido: 2 posts por semana',
+      body: 'Un post de insight y un teardown práctico cada semana. Crea autoridad sin necesidad de publicar a diario.',
+      week: 'Semana',
+      insight: 'Post de insight',
+      teardown: 'Post de teardown',
+      insightTemplate: 'Plantilla de post: Insight',
+      teardownTemplate: 'Plantilla de post: Teardown',
+      channel: 'Para ejecución de canal, publica versión larga en LinkedIn y reutiliza una versión corta para X/comunidad. Vincula cada post a tu página de oferta y a un activo de prueba.',
+      proof: 'Abrir proof kit',
+      offers: 'Abrir ofertas',
+    },
+    ca: {
+      badge: 'Publicació prellançament',
+      title: 'Cadència de contingut: 2 posts per setmana',
+      body: "Un post d'insight i un teardown pràctic cada setmana. Crea autoritat sense necessitat de publicar cada dia.",
+      week: 'Setmana',
+      insight: "Post d'insight",
+      teardown: 'Post de teardown',
+      insightTemplate: "Plantilla de post: Insight",
+      teardownTemplate: 'Plantilla de post: Teardown',
+      channel: "Per a execució de canal, publica versió llarga a LinkedIn i reaprofita una versió curta per a X/comunitat. Enllaça cada post a la teva pàgina d'oferta i a un actiu de prova.",
+      proof: 'Obrir proof kit',
+      offers: 'Obrir ofertes',
+    },
+  }[locale]
   return (
     <div className="space-y-10">
       <header>
-        <p className="text-xs font-semibold uppercase tracking-wide text-violet-600 dark:text-violet-300">Pre-launch publishing</p>
-        <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">2-posts-per-week content cadence</h1>
+        <p className="text-xs font-semibold uppercase tracking-wide text-violet-600 dark:text-violet-300">{copy.badge}</p>
+        <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{copy.title}</h1>
         <p className="mt-3 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-          One insight post and one practical teardown every week. This creates authority without requiring daily posting.
+          {copy.body}
         </p>
       </header>
 
@@ -26,9 +69,9 @@ export function ContentCadencePage() {
         <table className="w-full min-w-[700px] text-sm">
           <thead>
             <tr className="border-b border-slate-200 bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:bg-slate-800/40">
-              <th className="px-4 py-3 font-semibold">Week</th>
-              <th className="px-4 py-3 font-semibold">Insight post</th>
-              <th className="px-4 py-3 font-semibold">Teardown post</th>
+              <th className="px-4 py-3 font-semibold">{copy.week}</th>
+              <th className="px-4 py-3 font-semibold">{copy.insight}</th>
+              <th className="px-4 py-3 font-semibold">{copy.teardown}</th>
             </tr>
           </thead>
           <tbody>
@@ -45,7 +88,7 @@ export function ContentCadencePage() {
 
       <section className="grid gap-6 lg:grid-cols-2">
         <article className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-          <h2 className="font-semibold text-slate-900 dark:text-white">Post template: Insight</h2>
+          <h2 className="font-semibold text-slate-900 dark:text-white">{copy.insightTemplate}</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
             <li>Hook with one concrete pain metric.</li>
             <li>Share 2-3 operating principles.</li>
@@ -54,7 +97,7 @@ export function ContentCadencePage() {
           </ol>
         </article>
         <article className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-          <h2 className="font-semibold text-slate-900 dark:text-white">Post template: Teardown</h2>
+          <h2 className="font-semibold text-slate-900 dark:text-white">{copy.teardownTemplate}</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
             <li>Problem setup (one paragraph).</li>
             <li>Screenshot / architecture snippet.</li>
@@ -65,16 +108,15 @@ export function ContentCadencePage() {
       </section>
 
       <p className="text-sm text-slate-600 dark:text-slate-400">
-        For channel execution, publish long-form on LinkedIn and repurpose a shorter version for X/community channels.
-        Tie each post back to your offer page and one proof asset.
+        {copy.channel}
       </p>
 
       <div className="flex flex-wrap gap-3">
         <Link to="/proof-kit" className="cursor-pointer rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-500">
-          Open proof kit
+          {copy.proof}
         </Link>
         <Link to="/offers" className="cursor-pointer rounded-xl border border-violet-300 px-4 py-2 text-sm font-semibold text-violet-900 dark:text-violet-100">
-          Open offers
+          {copy.offers}
         </Link>
       </div>
     </div>

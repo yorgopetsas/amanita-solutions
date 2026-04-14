@@ -20,7 +20,7 @@ export function HomeGallery() {
           <div className="max-w-2xl">
             <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-violet-700 ring-1 ring-violet-200 dark:bg-slate-900/80 dark:text-violet-200 dark:ring-violet-500/30">
               <Palette className="h-3.5 w-3.5" aria-hidden />
-              {t('homeGallery.badge')}
+              12 homepage concepts
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
               {t('homeGallery.title')}

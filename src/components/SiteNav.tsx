@@ -155,7 +155,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           panelClassName="w-[min(90vw,28rem)]"
           triggerContent={t('nav.products')}
         >
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Capabilities</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{t('nav.capabilities')}</p>
           <ul className="grid gap-2 sm:grid-cols-2">
             {products.map((p, i) => (
               <motion.li
@@ -180,7 +180,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
             className="mt-3 block cursor-pointer text-center text-sm font-medium text-violet-600 transition hover:underline dark:text-violet-300"
             onClick={() => setMega(null)}
           >
-            View all products
+            {t('nav.viewAllProducts')}
           </Link>
         </NavDropdown>
 
@@ -192,7 +192,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           panelClassName="w-[min(90vw,32rem)]"
           triggerContent={t('nav.platforms')}
         >
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Major stacks</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{t('nav.majorStacks')}</p>
           <ul className="grid max-h-64 grid-cols-2 gap-1 overflow-y-auto pr-1 text-sm">
             {platforms.map((pl, i) => (
               <motion.li
@@ -221,7 +221,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           panelClassName="w-[min(90vw,17rem)]"
           triggerContent={t('nav.solutions')}
         >
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Who you are</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{t('nav.whoYouAre')}</p>
           <ul className="space-y-1 text-sm">
             <li>
               <Link
@@ -229,7 +229,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
                 className="block cursor-pointer rounded-lg px-2 py-2 font-medium text-slate-800 transition-colors hover:bg-violet-50 dark:text-slate-100 dark:hover:bg-slate-800"
                 onClick={() => setMega(null)}
               >
-                Freelancers &amp; solos
+                {t('nav.freelancersSolos')}
               </Link>
             </li>
             <li>
@@ -238,7 +238,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
                 className="block cursor-pointer rounded-lg px-2 py-2 font-medium text-slate-800 transition-colors hover:bg-violet-50 dark:text-slate-100 dark:hover:bg-slate-800"
                 onClick={() => setMega(null)}
               >
-                Agencies
+                {t('nav.agencies')}
               </Link>
             </li>
             <li>
@@ -247,7 +247,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
                 className="block cursor-pointer rounded-lg px-2 py-2 font-medium text-slate-800 transition-colors hover:bg-violet-50 dark:text-slate-100 dark:hover:bg-slate-800"
                 onClick={() => setMega(null)}
               >
-                Enterprise
+                {t('nav.enterprise')}
               </Link>
             </li>
           </ul>
@@ -261,16 +261,16 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           panelClassName="w-[min(92vw,24rem)]"
           triggerContent={t('nav.studio')}
         >
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Creative &amp; craft</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{t('nav.creativeCraft')}</p>
           <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-sm">
             {[
-              ['/studio/design-lab', 'Design Lab'],
-              ['/studio/motion', 'Motion'],
-              ['/studio/systems', 'Systems'],
-              ['/studio/animations', 'Animations'],
-              ['/studio/components', 'Components'],
-              ['/studio/collaborate', 'Collaborate'],
-              ['/showreel', 'Showreel'],
+              ['/studio/design-lab', t('nav.designLab')],
+              ['/studio/motion', t('nav.motion')],
+              ['/studio/systems', t('nav.systems')],
+              ['/studio/animations', t('nav.animations')],
+              ['/studio/components', t('nav.components')],
+              ['/studio/collaborate', t('nav.collaborate')],
+              ['/showreel', t('nav.showreel')],
             ].map(([to, label]) => (
               <Link
                 key={to}
@@ -325,13 +325,13 @@ export function SiteNav({ variant = 'light' }: NavProps) {
         >
           <div className="grid gap-4 sm:grid-cols-3">
             <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Trust &amp; proof</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{t('nav.trustProof')}</p>
               <ul className="space-y-1 text-sm">
                 {[
-                  ['/trust', 'Trust & metrics'],
-                  ['/demo', 'Interactive demo'],
-                  ['/faq', 'FAQ'],
-                  ['/security', 'Security'],
+                  ['/trust', t('nav.trustMetrics')],
+                  ['/demo', t('nav.interactiveDemo')],
+                  ['/faq', t('nav.faq')],
+                  ['/security', t('nav.security')],
                 ].map(([to, label]) => (
                   <li key={to}>
                     <Link
@@ -346,15 +346,15 @@ export function SiteNav({ variant = 'light' }: NavProps) {
               </ul>
             </div>
             <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Learn &amp; compare</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{t('nav.learnCompare')}</p>
               <ul className="space-y-1 text-sm">
                 {[
-                  ['/resources', 'Resources'],
-                  ['/offers', 'Offers'],
-                  ['/proof-kit', 'Proof kit'],
-                  ['/compare', 'Compare options'],
-                  ['/prelaunch/content-cadence', 'Content cadence'],
-                  ['/prelaunch/outbound-playbook', 'Outbound playbook'],
+                  ['/resources', t('nav.resources')],
+                  ['/offers', t('nav.offers')],
+                  ['/proof-kit', t('nav.proofKit')],
+                  ['/compare', t('nav.compareOptions')],
+                  ['/prelaunch/content-cadence', t('nav.contentCadence')],
+                  ['/prelaunch/outbound-playbook', t('nav.outboundPlaybook')],
                 ].map(([to, label]) => (
                   <li key={to}>
                     <Link
@@ -369,13 +369,13 @@ export function SiteNav({ variant = 'light' }: NavProps) {
               </ul>
             </div>
             <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Product surface</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{t('nav.productSurface')}</p>
               <ul className="space-y-1 text-sm">
                 {[
-                  ['/status', 'Status'],
-                  ['/integrations', 'Integrations'],
-                  ['/tools/roi-calculator', 'ROI calculator'],
-                  ['/tools/agent-audit', 'Audit template'],
+                  ['/status', t('nav.status')],
+                  ['/integrations', t('nav.integrations')],
+                  ['/tools/roi-calculator', t('nav.roiCalculator')],
+                  ['/tools/agent-audit', t('nav.auditTemplate')],
                 ].map(([to, label]) => (
                   <li key={to}>
                     <Link
@@ -455,90 +455,90 @@ export function SiteNav({ variant = 'light' }: NavProps) {
               variant === 'dark' ? 'border-white/10 bg-slate-950' : 'border-slate-200 bg-white'
             }`}
           >
-            <div className={`mb-2 text-xs font-semibold uppercase ${muted}`}>Navigate</div>
+            <div className={`mb-2 text-xs font-semibold uppercase ${muted}`}>{t('nav.navigate')}</div>
             <div className="flex max-h-[min(70vh,28rem)] flex-col gap-1 overflow-y-auto">
               <div className="mb-2">
                 <LanguageSwitcher />
               </div>
               <Link to="/products" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Products
+                {t('nav.products')}
               </Link>
               <Link to="/platforms" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Platforms
+                {t('nav.platforms')}
               </Link>
-              <p className={`px-2 pt-3 text-xs font-semibold uppercase ${muted}`}>Solutions</p>
+              <p className={`px-2 pt-3 text-xs font-semibold uppercase ${muted}`}>{t('nav.solutions')}</p>
               <Link to="/solutions/freelancers" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Freelancers &amp; solos
+                {t('nav.freelancersSolos')}
               </Link>
               <Link to="/solutions/agencies" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Agencies
+                {t('nav.agencies')}
               </Link>
               <Link to="/solutions/enterprise" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Enterprise
+                {t('nav.enterprise')}
               </Link>
-              <p className={`px-2 pt-3 text-xs font-semibold uppercase ${muted}`}>Studio</p>
+              <p className={`px-2 pt-3 text-xs font-semibold uppercase ${muted}`}>{t('nav.studio')}</p>
               <Link to="/studio/design-lab" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Design Lab
+                {t('nav.designLab')}
               </Link>
               <Link to="/studio/motion" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Motion
+                {t('nav.motion')}
               </Link>
               <Link to="/studio/systems" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Systems
+                {t('nav.systems')}
               </Link>
               <Link to="/studio/animations" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Animations
+                {t('nav.animations')}
               </Link>
               <Link to="/studio/components" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Components
+                {t('nav.components')}
               </Link>
               <Link to="/studio/collaborate" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Collaborate
+                {t('nav.collaborate')}
               </Link>
               <Link to="/showreel" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Showreel
+                {t('nav.showreel')}
               </Link>
               <Link to="/" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Home themes gallery
+                {t('nav.homeThemesGallery')}
               </Link>
               <Link to="/pricing" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Pricing
+                {t('nav.pricing')}
               </Link>
               <Link to="/trust" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Trust &amp; metrics
+                {t('nav.trustMetrics')}
               </Link>
               <Link to="/demo" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Interactive demo
+                {t('nav.interactiveDemo')}
               </Link>
               <Link to="/faq" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                FAQ
+                {t('nav.faq')}
               </Link>
               <Link to="/security" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Security
+                {t('nav.security')}
               </Link>
               <Link to="/resources" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Resources
+                {t('nav.resources')}
               </Link>
               <Link to="/offers" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Offers
+                {t('nav.offers')}
               </Link>
               <Link to="/proof-kit" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Proof kit
+                {t('nav.proofKit')}
               </Link>
               <Link to="/compare" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Compare
+                {t('nav.compareOptions')}
               </Link>
               <Link to="/prelaunch/content-cadence" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Content cadence
+                {t('nav.contentCadence')}
               </Link>
               <Link to="/prelaunch/outbound-playbook" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Outbound playbook
+                {t('nav.outboundPlaybook')}
               </Link>
               <Link to="/status" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Status
+                {t('nav.status')}
               </Link>
               <Link to="/integrations" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
-                Integrations
+                {t('nav.integrations')}
               </Link>
               <Link
                 to="/contact"

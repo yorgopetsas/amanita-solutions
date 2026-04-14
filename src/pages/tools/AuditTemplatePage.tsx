@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../i18n/I18nProvider'
 
 const sections = [
   {
@@ -24,16 +25,37 @@ const sections = [
 ]
 
 export function AuditTemplatePage() {
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      back: '← Newsletter & tools',
+      title: 'Agent readiness audit',
+      body: 'Printable template for workshops. Use browser print to PDF.',
+      print: 'Print / Save PDF',
+    },
+    es: {
+      back: '← Newsletter y tools',
+      title: 'Auditoría de preparación de agentes',
+      body: 'Plantilla imprimible para workshops. Usa imprimir del navegador para PDF.',
+      print: 'Imprimir / Guardar PDF',
+    },
+    ca: {
+      back: '← Newsletter i tools',
+      title: "Auditoria de preparació d'agents",
+      body: "Plantilla imprimible per a workshops. Fes servir la impressió del navegador per a PDF.",
+      print: 'Imprimir / Desar PDF',
+    },
+  }[locale]
   return (
     <article className="space-y-8">
       <Link to="/newsletter" className="text-sm font-medium text-violet-600 hover:underline dark:text-violet-300">
-        ← Newsletter &amp; tools
+        {copy.back}
       </Link>
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-slate-900 dark:text-white">Agent readiness audit</h1>
+          <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-slate-900 dark:text-white">{copy.title}</h1>
           <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
-            Printable template for workshops. Use browser print to PDF.
+            {copy.body}
           </p>
         </div>
         <button
@@ -41,7 +63,7 @@ export function AuditTemplatePage() {
           onClick={() => window.print()}
           className="cursor-pointer rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-violet-400 print:hidden dark:border-slate-600 dark:text-slate-100"
         >
-          Print / Save PDF
+          {copy.print}
         </button>
       </header>
 

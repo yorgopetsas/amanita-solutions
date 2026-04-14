@@ -7,19 +7,25 @@ export function PlatformsIndex() {
   const copy = {
     en: {
       title: 'Platforms & model families',
-      body: 'Ten focused briefs on the stacks clients ask about most—what they are strong at, what to watch, and how Nexus meets you there.',
+      body: 'Browse the major AI platforms with quick briefs and visual identity. Each card links to a deeper implementation note.',
+      open: 'Open platform brief',
+      logoFallback: 'Logo unavailable',
     },
     es: {
       title: 'Plataformas y familias de modelos',
-      body: 'Diez briefs enfocados sobre los stacks que más piden los clientes: fortalezas, riesgos y cómo Nexus aterriza en cada uno.',
+      body: 'Explora las principales plataformas de IA con briefs rápidos e identidad visual. Cada tarjeta enlaza a una nota de implementación más profunda.',
+      open: 'Abrir brief de plataforma',
+      logoFallback: 'Logo no disponible',
     },
     ca: {
       title: 'Plataformes i famílies de models',
-      body: 'Deu briefs enfocats sobre els stacks que més demanen els clients: fortaleses, riscos i com Nexus aterra a cadascun.',
+      body: "Explora les principals plataformes d'IA amb briefs ràpids i identitat visual. Cada targeta enllaça a una nota d'implementació més profunda.",
+      open: 'Obrir brief de plataforma',
+      logoFallback: 'Logo no disponible',
     },
   }[locale]
 
-  const localized =
+  const localizedPlatforms =
     locale === 'en'
       ? platforms
       : locale === 'es'
@@ -53,6 +59,20 @@ export function PlatformsIndex() {
               xai: 'Alternativa frontier per a equips que experimenten nous stacks.',
             }[pl.slug] ?? pl.headline,
           }))
+
+  const logos: Record<string, string> = {
+    openai: 'https://cdn.simpleicons.org/openai',
+    microsoft: 'https://cdn.simpleicons.org/microsoft',
+    google: 'https://cdn.simpleicons.org/google',
+    anthropic: 'https://cdn.simpleicons.org/anthropic',
+    openclaw: 'https://cdn.simpleicons.org/github',
+    meta: 'https://cdn.simpleicons.org/meta',
+    mistral: 'https://cdn.simpleicons.org/mistralai',
+    'amazon-bedrock': 'https://cdn.simpleicons.org/amazonwebservices',
+    cohere: 'https://cdn.simpleicons.org/cohere',
+    xai: 'https://cdn.simpleicons.org/x',
+  }
+
   return (
     <div className="space-y-8">
       <header>
@@ -62,14 +82,30 @@ export function PlatformsIndex() {
         </p>
       </header>
       <ul className="grid gap-4 sm:grid-cols-2">
-        {localized.map((pl) => (
+        {localizedPlatforms.map((pl) => (
           <li key={pl.slug}>
             <Link
               to={`/platforms/${pl.slug}`}
               className="block cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-violet-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:hover:border-violet-500/50"
             >
-              <h2 className="font-[family-name:var(--font-display)] text-lg font-semibold text-slate-900 dark:text-white">{pl.name}</h2>
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-800">
+                  {logos[pl.slug] ? (
+                    <img
+                      src={logos[pl.slug]}
+                      alt={`${pl.name} logo`}
+                      className="h-6 w-6 object-contain"
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <span className="text-[10px] font-semibold uppercase text-slate-500">{copy.logoFallback}</span>
+                  )}
+                </div>
+                <h2 className="font-[family-name:var(--font-display)] text-lg font-semibold text-slate-900 dark:text-white">{pl.name}</h2>
+              </div>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{pl.headline}</p>
+              <p className="mt-3 text-sm font-semibold text-violet-700 dark:text-violet-300">{copy.open} to</p>
             </Link>
           </li>
         ))}

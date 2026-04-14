@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../i18n/I18nProvider'
 
 const sections = [
   {
@@ -20,15 +21,39 @@ const sections = [
 ]
 
 export function EvalPlaybookPage() {
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      back: '← Resources',
+      title: 'Agent eval playbook',
+      body: 'How we think about eval discipline for agent fleets—portable across OpenAI, Anthropic, Azure, and open-weight stacks.',
+      tie: 'Product tie-in:',
+      governance: 'Sentinel Governance',
+    },
+    es: {
+      back: '← Recursos',
+      title: 'Playbook de eval para agentes',
+      body: 'Cómo pensamos la disciplina de evaluación para fleets de agentes, portable entre OpenAI, Anthropic, Azure y stacks open-weight.',
+      tie: 'Vinculación con producto:',
+      governance: 'Sentinel Governance',
+    },
+    ca: {
+      back: '← Recursos',
+      title: "Playbook d'eval per a agents",
+      body: "Com pensem la disciplina d'avaluació per a fleets d'agents, portable entre OpenAI, Anthropic, Azure i stacks open-weight.",
+      tie: 'Vinculació amb producte:',
+      governance: 'Sentinel Governance',
+    },
+  }[locale]
   return (
     <article className="space-y-8">
       <Link to="/resources" className="text-sm font-medium text-violet-600 hover:underline dark:text-violet-300">
-        ← Resources
+        {copy.back}
       </Link>
       <header>
-        <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-slate-900 dark:text-white">Agent eval playbook</h1>
+        <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-slate-900 dark:text-white">{copy.title}</h1>
         <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
-          How we think about eval discipline for agent fleets—portable across OpenAI, Anthropic, Azure, and open-weight stacks.
+          {copy.body}
         </p>
       </header>
       <div className="space-y-6">
@@ -44,9 +69,9 @@ export function EvalPlaybookPage() {
         ))}
       </div>
       <p className="text-sm text-slate-600 dark:text-slate-400">
-        Product tie-in:{' '}
+        {copy.tie}{' '}
         <Link to="/products/governance" className="font-medium text-violet-600 hover:underline dark:text-violet-300">
-          Sentinel Governance
+          {copy.governance}
         </Link>
         .
       </p>

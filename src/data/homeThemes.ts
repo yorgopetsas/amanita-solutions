@@ -18,4 +18,5 @@ export const homeThemes: HomeTheme[] = [
   { id: 9, title: 'Swiss Line', palette: 'Paper white · Ink black', vibe: 'Editorial minimal', path: '/home/9' },
   { id: 10, title: 'Deep Orbit', palette: 'Navy · Gold · Mist', vibe: 'Premium mission control', path: '/home/10' },
   { id: 11, title: 'Aurora Flux', palette: 'Cyan · Electric blue · Magenta', vibe: 'Transparent header + cinematic glow', path: '/home/proposal-aurora' },
+  { id: 12, title: 'Legacy Gallery Home', palette: 'Multi', vibe: 'Previous homepage concepts index', path: '/home/12' },
 ]

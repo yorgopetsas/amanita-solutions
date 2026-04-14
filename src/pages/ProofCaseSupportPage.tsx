@@ -1,35 +1,81 @@
 import { Link } from 'react-router-dom'
+import { useI18n } from '../i18n/I18nProvider'
 
 export function ProofCaseSupportPage() {
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      back: '← Back to proof kit',
+      badge: 'Case-style proof (sample)',
+      title: 'Support triage with human refunds gate',
+      body: 'Demonstrates how an agent can resolve repetitive tickets while escalating risky refund decisions to a human queue.',
+      context: 'Context',
+      architecture: 'Architecture',
+      outcome: 'Outcome (pilot)',
+      notes: 'Implementation notes',
+      next: 'Next best step',
+      nextBody: 'Package this as your first reusable one-pager and link it directly in outbound messages for prospects with support operations pain.',
+      offers: 'See offer ladder',
+      call: 'Book discovery call',
+    },
+    es: {
+      back: '← Volver al proof kit',
+      badge: 'Prueba tipo caso (muestra)',
+      title: 'Triage de soporte con puerta humana para reembolsos',
+      body: 'Demuestra cómo un agente puede resolver tickets repetitivos y escalar decisiones de reembolso de riesgo a una cola humana.',
+      context: 'Contexto',
+      architecture: 'Arquitectura',
+      outcome: 'Resultado (piloto)',
+      notes: 'Notas de implementación',
+      next: 'Siguiente mejor paso',
+      nextBody: 'Empaqueta esto como tu primer one-pager reutilizable y enlázalo en mensajes outbound para prospectos con dolor en operaciones de soporte.',
+      offers: 'Ver escalera de ofertas',
+      call: 'Reservar discovery call',
+    },
+    ca: {
+      back: '← Tornar al proof kit',
+      badge: 'Prova tipus cas (mostra)',
+      title: 'Triage de suport amb porta humana per a reemborsaments',
+      body: 'Demostra com un agent pot resoldre tiquets repetitius i escalar decisions de reemborsament de risc a una cua humana.',
+      context: 'Context',
+      architecture: 'Arquitectura',
+      outcome: 'Resultat (pilot)',
+      notes: "Notes d'implementació",
+      next: 'Millor següent pas',
+      nextBody: "Empaqueta això com el teu primer one-pager reutilitzable i enllaça'l en missatges outbound per a prospects amb dolor en operacions de suport.",
+      offers: "Veure escala d'ofertes",
+      call: 'Reservar discovery call',
+    },
+  }[locale]
   return (
     <article className="space-y-8">
       <Link to="/proof-kit" className="text-sm font-medium text-violet-600 hover:underline dark:text-violet-300">
-        ← Back to proof kit
+        {copy.back}
       </Link>
 
       <header className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 dark:border-slate-800 dark:from-slate-900 dark:to-slate-950">
-        <p className="text-xs font-semibold uppercase tracking-wide text-violet-600 dark:text-violet-300">Case-style proof (sample)</p>
-        <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">Support triage with human refunds gate</h1>
-        <p className="mt-3 text-slate-600 dark:text-slate-300">Demonstrates how an agent can resolve repetitive tickets while escalating risky refund decisions to a human queue.</p>
+        <p className="text-xs font-semibold uppercase tracking-wide text-violet-600 dark:text-violet-300">{copy.badge}</p>
+        <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{copy.title}</h1>
+        <p className="mt-3 text-slate-600 dark:text-slate-300">{copy.body}</p>
       </header>
 
       <section className="grid gap-6 md:grid-cols-3">
         <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-xs uppercase tracking-wide text-slate-500">Context</p>
+          <p className="text-xs uppercase tracking-wide text-slate-500">{copy.context}</p>
           <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">2,100 tickets/month, 12-minute average handling time, inconsistent macros and long first response delays.</p>
         </div>
         <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-xs uppercase tracking-wide text-slate-500">Architecture</p>
+          <p className="text-xs uppercase tracking-wide text-slate-500">{copy.architecture}</p>
           <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">Retrieval from KB + ticket history, tool call into helpdesk API, confidence scoring, and human escalation for refund intents.</p>
         </div>
         <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-xs uppercase tracking-wide text-slate-500">Outcome (pilot)</p>
+          <p className="text-xs uppercase tracking-wide text-slate-500">{copy.outcome}</p>
           <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">41% routine deflection, -27% first response time, and clearer audit trail for policy-sensitive actions.</p>
         </div>
       </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-        <h2 className="font-semibold text-slate-900 dark:text-white">Implementation notes</h2>
+        <h2 className="font-semibold text-slate-900 dark:text-white">{copy.notes}</h2>
         <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
           <li>• Week 1: discovery, taxonomy cleanup, and escalation policy definition.</li>
           <li>• Week 2: retrieval and triage intent classification baseline.</li>
@@ -39,14 +85,14 @@ export function ProofCaseSupportPage() {
       </section>
 
       <section className="rounded-2xl border border-violet-200 bg-violet-50/70 p-6 dark:border-violet-900/40 dark:bg-violet-950/30">
-        <h2 className="font-semibold text-slate-900 dark:text-violet-100">Next best step</h2>
-        <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">Package this as your first reusable one-pager and link it directly in outbound messages for prospects with support operations pain.</p>
+        <h2 className="font-semibold text-slate-900 dark:text-violet-100">{copy.next}</h2>
+        <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">{copy.nextBody}</p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link to="/offers" className="cursor-pointer rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-500">
-            See offer ladder
+            {copy.offers}
           </Link>
           <Link to="/contact" className="cursor-pointer rounded-xl border border-violet-300 px-4 py-2 text-sm font-semibold text-violet-900 dark:text-violet-100">
-            Book discovery call
+            {copy.call}
           </Link>
         </div>
       </section>

@@ -10,6 +10,7 @@ import { DemoPage } from './pages/DemoPage'
 import { FaqPage } from './pages/FaqPage'
 import { HomeById } from './pages/home/HomeById'
 import { HomeGallery } from './pages/home/HomeGallery'
+import { HomeAmanita } from './pages/home/HomeAmanita'
 import { HomeProposalAurora } from './pages/home/HomeProposalAurora'
 import { IntegrationsPage } from './pages/IntegrationsPage'
 import { NewsletterPage } from './pages/NewsletterPage'
@@ -50,7 +51,8 @@ export default function App() {
     <Routes>
       <Route path="home/proposal-aurora" element={<HomeProposalAurora />} />
       <Route element={<Layout />}>
-        <Route index element={<HomeGallery />} />
+        <Route index element={<HomeAmanita />} />
+        <Route path="home/12" element={<HomeGallery />} />
         <Route path="home/:id" element={<HomeById />} />
         <Route path="products" element={<ProductsIndex />} />
         <Route path="products/:slug" element={<ProductPage />} />
