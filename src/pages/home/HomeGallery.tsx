@@ -3,9 +3,11 @@ import { ArrowRight, Palette } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { TrustStrip } from '../../components/TrustStrip'
 import { homeThemes } from '../../data/homeThemes'
+import { useI18n } from '../../i18n/I18nProvider'
 
 export function HomeGallery() {
   const reduce = useReducedMotion()
+  const { t } = useI18n()
   return (
     <div className="space-y-12">
       <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-violet-50 via-white to-fuchsia-50 p-8 shadow-sm dark:border-slate-800 dark:from-slate-900 dark:via-slate-950 dark:to-violet-950/40 sm:p-12">
@@ -13,20 +15,20 @@ export function HomeGallery() {
           <div className="max-w-2xl">
             <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-violet-700 ring-1 ring-violet-200 dark:bg-slate-900/80 dark:text-violet-200 dark:ring-violet-500/30">
               <Palette className="h-3.5 w-3.5" aria-hidden />
-              11 homepage concepts
+              {t('homeGallery.badge')}
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-              Pick the entrance that fits your brand.
+              {t('homeGallery.title')}
             </h1>
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-              Each theme is a full hero experience with Motion for React. Explore liquid “neural” motion, anatomy maps, bento storytelling, and more—then reuse components in production.
+              {t('homeGallery.body')}
             </p>
           </div>
           <Link
             to="/contact"
             className="inline-flex cursor-pointer items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-violet-100"
           >
-            Start a project <ArrowRight className="h-4 w-4" />
+            {t('homeGallery.cta')} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

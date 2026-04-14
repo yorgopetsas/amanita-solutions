@@ -2,8 +2,10 @@ import { Code2, Mail, Network } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { products } from '../data/products'
 import { platforms } from '../data/platforms'
+import { useI18n } from '../i18n/I18nProvider'
 
 export function SiteFooter() {
+  const { t } = useI18n()
   return (
     <footer className="mt-24 border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
@@ -25,7 +27,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Products</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t('footer.products')}</p>
           <ul className="mt-3 space-y-2 text-sm">
             {products.slice(0, 5).map((p) => (
               <li key={p.slug}>
@@ -42,7 +44,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Platforms</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t('footer.platforms')}</p>
           <ul className="mt-3 grid grid-cols-2 gap-x-2 gap-y-2 text-sm">
             {platforms.map((pl) => (
               <li key={pl.slug}>
@@ -54,7 +56,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Company</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t('footer.company')}</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <Link to="/about" className="cursor-pointer text-slate-700 hover:text-violet-600 dark:text-slate-300">
@@ -89,7 +91,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Solutions &amp; studio</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t('footer.solutionsStudio')}</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <Link to="/solutions/freelancers" className="cursor-pointer text-slate-700 hover:text-violet-600 dark:text-slate-300">
@@ -124,7 +126,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Trust &amp; growth</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t('footer.trustGrowth')}</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <Link to="/trust" className="cursor-pointer text-slate-700 hover:text-violet-600 dark:text-slate-300">

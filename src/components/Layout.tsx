@@ -1,6 +1,8 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { hasLocaleCoverage } from '../i18n/coverage'
+import { useI18n } from '../i18n/I18nProvider'
 import { trackPageView } from '../lib/analytics'
 import { MagicChatDock } from './MagicChatDock'
 import { SiteFooter } from './SiteFooter'
@@ -9,6 +11,7 @@ import { SiteNav } from './SiteNav'
 export function Layout() {
   const location = useLocation()
   const reduce = useReducedMotion()
+  const { locale, t } = useI18n()
 
   useEffect(() => {
     trackPageView(location.pathname)
@@ -49,6 +52,11 @@ export function Layout() {
         <SiteNav />
       </div>
       <main className="relative mx-auto w-full max-w-6xl flex-1 px-6 pb-16">
+        {!hasLocaleCoverage(locale, location.pathname) && (
+          <div className="mb-5 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
+            {t('common.untranslated')}
+          </div>
+        )}
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

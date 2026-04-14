@@ -5,6 +5,8 @@ import { Link, NavLink } from 'react-router-dom'
 import { homeThemes } from '../data/homeThemes'
 import { products } from '../data/products'
 import { platforms } from '../data/platforms'
+import { LanguageSwitcher } from './LanguageSwitcher'
+import { useI18n } from '../i18n/I18nProvider'
 
 const linkBase =
   'rounded-lg px-3 py-2 text-sm font-medium transition-colors cursor-pointer'
@@ -107,6 +109,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mega, setMega] = useState<MegaKey | null>(null)
   const reduceMotion = useReducedMotion()
+  const { t } = useI18n()
 
   useEffect(() => {
     if (!mega) return
@@ -150,7 +153,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           setMega={setMega}
           align="left"
           panelClassName="w-[min(90vw,28rem)]"
-          triggerContent="Products"
+          triggerContent={t('nav.products')}
         >
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Capabilities</p>
           <ul className="grid gap-2 sm:grid-cols-2">
@@ -187,7 +190,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           setMega={setMega}
           align="left"
           panelClassName="w-[min(90vw,32rem)]"
-          triggerContent="Platforms"
+          triggerContent={t('nav.platforms')}
         >
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Major stacks</p>
           <ul className="grid max-h-64 grid-cols-2 gap-1 overflow-y-auto pr-1 text-sm">
@@ -216,7 +219,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           setMega={setMega}
           align="left"
           panelClassName="w-[min(90vw,17rem)]"
-          triggerContent="Solutions"
+          triggerContent={t('nav.solutions')}
         >
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Who you are</p>
           <ul className="space-y-1 text-sm">
@@ -256,7 +259,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           setMega={setMega}
           align="left"
           panelClassName="w-[min(92vw,24rem)]"
-          triggerContent="Studio"
+          triggerContent={t('nav.studio')}
         >
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Creative &amp; craft</p>
           <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-sm">
@@ -287,7 +290,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           setMega={setMega}
           align="right"
           panelClassName="w-[min(90vw,22rem)]"
-          triggerContent="Home themes"
+          triggerContent={t('nav.homeThemes')}
         >
           <ul className="max-h-80 space-y-1 overflow-y-auto pr-1">
             {homeThemes.map((h, i) => (
@@ -318,7 +321,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           setMega={setMega}
           align="right"
           panelClassName="w-[min(94vw,40rem)]"
-          triggerContent="Explore"
+          triggerContent={t('nav.explore')}
         >
           <div className="grid gap-4 sm:grid-cols-3">
             <div>
@@ -395,7 +398,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
             `${linkBase} text-slate-800 hover:bg-black/5 dark:text-slate-100 dark:hover:bg-white/10 ${isActive ? 'bg-black/5 dark:bg-white/10' : ''}`
           }
         >
-          Pricing
+          {t('nav.pricing')}
         </NavLink>
         <NavLink
           to="/testimonials"
@@ -403,7 +406,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
             `${linkBase} text-slate-800 hover:bg-black/5 dark:text-slate-100 dark:hover:bg-white/10 ${isActive ? 'bg-black/5 dark:bg-white/10' : ''}`
           }
         >
-          Testimonials
+          {t('nav.testimonials')}
         </NavLink>
         <NavLink
           to="/about"
@@ -411,11 +414,12 @@ export function SiteNav({ variant = 'light' }: NavProps) {
             `${linkBase} text-slate-800 hover:bg-black/5 dark:text-slate-100 dark:hover:bg-white/10 ${isActive ? 'bg-black/5 dark:bg-white/10' : ''}`
           }
         >
-          About
+          {t('nav.about')}
         </NavLink>
       </nav>
 
       <div className="hidden items-center gap-2 lg:flex">
+        <LanguageSwitcher />
         <motion.div whileHover={reduceMotion ? undefined : { scale: 1.03 }} whileTap={reduceMotion ? undefined : { scale: 0.97 }}>
           <Link
             to="/contact"
@@ -425,7 +429,7 @@ export function SiteNav({ variant = 'light' }: NavProps) {
                 : 'bg-white text-slate-900 hover:bg-violet-100'
             }`}
           >
-            Book a call
+            {t('nav.bookCall')}
           </Link>
         </motion.div>
       </div>
@@ -453,6 +457,9 @@ export function SiteNav({ variant = 'light' }: NavProps) {
           >
             <div className={`mb-2 text-xs font-semibold uppercase ${muted}`}>Navigate</div>
             <div className="flex max-h-[min(70vh,28rem)] flex-col gap-1 overflow-y-auto">
+              <div className="mb-2">
+                <LanguageSwitcher />
+              </div>
               <Link to="/products" className="cursor-pointer rounded-lg px-2 py-2 text-sm font-medium text-slate-800 dark:text-white" onClick={() => setMobileOpen(false)}>
                 Products
               </Link>

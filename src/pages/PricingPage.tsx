@@ -1,6 +1,7 @@
 import { Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { productizedOffers } from '../data/offers'
+import { useI18n } from '../i18n/I18nProvider'
 
 const tiers = [
   {
@@ -28,15 +29,16 @@ const tiers = [
 ]
 
 export function PricingPage() {
+  const { t } = useI18n()
   return (
     <div className="space-y-12">
       <header className="text-center">
-        <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">Pricing</h1>
+        <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white">{t('pricing.title')}</h1>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
-          Illustrative bands modeled after public AI agency pages (deployment fees + monthly operation). Final scopes follow discovery.
+          {t('pricing.body')}
         </p>
         <Link to="/offers" className="mt-4 inline-block text-sm font-semibold text-violet-600 hover:underline dark:text-violet-300">
-          See productized offer ladder →
+          {t('pricing.offerLink')} →
         </Link>
       </header>
       <div className="grid gap-6 lg:grid-cols-3">
