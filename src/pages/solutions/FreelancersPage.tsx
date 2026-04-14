@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, Layers, Sparkles, Zap } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../i18n/I18nProvider'
 
 const pillars = [
   {
@@ -55,6 +56,45 @@ const faq = [
 
 export function FreelancersPage() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: {
+      badge: 'Solutions · Independent builders',
+      title: 'Can your current tools keep up with your clients’ agent expectations?',
+      start: 'Start a partnership thread',
+      offers: 'See 3 core offers',
+      pricing: 'See illustrative pricing',
+      trusted: 'Trusted by teams shipping real workflows (demo names)',
+      create: 'Create high-impact agent experiences your way',
+      faq: 'FAQ',
+      ready: 'Ready to try it for yourself?',
+      book: 'Book a working session',
+    },
+    es: {
+      badge: 'Soluciones · Builders independientes',
+      title: '¿Tus herramientas actuales están a la altura de las expectativas de agentes de tus clientes?',
+      start: 'Iniciar colaboración',
+      offers: 'Ver 3 ofertas core',
+      pricing: 'Ver precios orientativos',
+      trusted: 'Confiado por equipos que entregan workflows reales (nombres demo)',
+      create: 'Crea experiencias de agentes de alto impacto a tu manera',
+      faq: 'FAQ',
+      ready: '¿Listo para probarlo?',
+      book: 'Reservar sesión de trabajo',
+    },
+    ca: {
+      badge: 'Solucions · Builders independents',
+      title: 'Les teves eines actuals poden seguir el ritme de les expectatives d’agents dels clients?',
+      start: 'Iniciar col·laboració',
+      offers: 'Veure 3 ofertes core',
+      pricing: 'Veure preus orientatius',
+      trusted: 'Confiat per equips que lliuren workflows reals (noms demo)',
+      create: "Crea experiències d'agents d'alt impacte a la teva manera",
+      faq: 'FAQ',
+      ready: 'Preparat per provar-ho?',
+      book: 'Reservar sessió de treball',
+    },
+  }[locale]
   return (
     <div className="space-y-20">
       <section className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-900 to-violet-950 px-8 py-16 text-white dark:border-slate-800 sm:px-12">
@@ -63,7 +103,7 @@ export function FreelancersPage() {
           initial={reduce ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          Solutions · Independent builders
+          {copy.badge}
         </motion.p>
         <motion.h1
           className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-4xl font-semibold leading-tight sm:text-5xl"
@@ -71,7 +111,7 @@ export function FreelancersPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05 }}
         >
-          Can your current tools keep up with your clients’ agent expectations?
+          {copy.title}
         </motion.h1>
         <motion.p
           className="mt-6 max-w-2xl text-lg text-slate-300"
@@ -88,19 +128,19 @@ export function FreelancersPage() {
         </motion.p>
         <motion.div className="mt-8 flex flex-wrap gap-3" initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
           <Link to="/contact" className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-violet-100">
-            Start a partnership thread <ArrowRight className="h-4 w-4" />
+            {copy.start} <ArrowRight className="h-4 w-4" />
           </Link>
           <Link to="/offers" className="inline-flex cursor-pointer rounded-xl bg-violet-500/80 px-5 py-3 text-sm font-semibold text-white transition hover:bg-violet-400">
-            See 3 core offers
+            {copy.offers}
           </Link>
           <Link to="/pricing" className="inline-flex cursor-pointer rounded-xl border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-            See illustrative pricing
+            {copy.pricing}
           </Link>
         </motion.div>
       </section>
 
       <section>
-        <p className="text-center text-xs font-semibold uppercase tracking-wide text-slate-500">Trusted by teams shipping real workflows (demo names)</p>
+        <p className="text-center text-xs font-semibold uppercase tracking-wide text-slate-500">{copy.trusted}</p>
         <div className="mt-4 flex flex-wrap justify-center gap-3">
           {['IDEO', 'Monday', 'BBDO', 'NYT', 'TED', 'DocuSign'].map((name, i) => (
             <motion.span
@@ -118,7 +158,7 @@ export function FreelancersPage() {
       </section>
 
       <section>
-        <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-semibold text-slate-900 dark:text-white">Create high-impact agent experiences your way</h2>
+        <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-semibold text-slate-900 dark:text-white">{copy.create}</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {pillars.map((p, i) => (
             <motion.div
@@ -199,7 +239,7 @@ export function FreelancersPage() {
       </section>
 
       <section>
-        <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-slate-900 dark:text-white">FAQ</h2>
+        <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-slate-900 dark:text-white">{copy.faq}</h2>
         <div className="mt-6 space-y-3">
           {faq.map((item) => (
             <details key={item.q} className="group rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
@@ -211,10 +251,10 @@ export function FreelancersPage() {
       </section>
 
       <section className="rounded-3xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-12 text-center text-white">
-        <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold">Ready to try it for yourself?</h2>
+        <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold">{copy.ready}</h2>
         <p className="mx-auto mt-2 max-w-lg text-sm text-white/90">Join independents who want agent delivery to feel as intentional as premium web work.</p>
         <Link to="/contact" className="mt-6 inline-flex cursor-pointer rounded-xl bg-white px-6 py-3 text-sm font-semibold text-violet-700 transition hover:bg-violet-100">
-          Book a working session
+          {copy.book}
         </Link>
       </section>
     </div>

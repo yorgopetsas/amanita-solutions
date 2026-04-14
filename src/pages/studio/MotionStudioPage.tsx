@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../i18n/I18nProvider'
 
 const filters = ['All', 'RAG', 'Multi-agent', 'Titles', 'Tools', 'Realtime', 'Brand', 'Compliance'] as const
 
@@ -18,14 +19,20 @@ const tiles = [
 export function MotionStudioPage() {
   const [active, setActive] = useState<(typeof filters)[number]>('All')
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
   const filtered = active === 'All' ? tiles : tiles.filter((t) => t.cat === active)
+  const copy = {
+    en: { badge: 'Studio · Motion', title: 'Motion for agents.', reel: 'Open full showreel' },
+    es: { badge: 'Studio · Motion', title: 'Motion para agentes.', reel: 'Abrir showreel completo' },
+    ca: { badge: 'Studio · Motion', title: 'Motion per a agents.', reel: 'Obrir showreel complet' },
+  }[locale]
 
   return (
     <div className="space-y-12">
       <header className="border-b border-slate-200 pb-10 dark:border-slate-800">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Studio · Motion</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{copy.badge}</p>
         <h1 className="mt-4 max-w-4xl font-[family-name:var(--font-syne)] text-5xl font-bold leading-[1.05] text-slate-900 dark:text-white sm:text-6xl">
-          Motion for agents.
+          {copy.title}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
           Editorial rhythm borrowed from{' '}
@@ -76,7 +83,7 @@ export function MotionStudioPage() {
       <p className="text-center text-sm text-slate-500">
         Fictional tile labels echo public portfolio formatting—swap with your reel.{' '}
         <Link to="/showreel" className="font-semibold text-violet-600 hover:underline dark:text-violet-300">
-          Open full showreel
+          {copy.reel}
         </Link>
       </p>
     </div>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { MagicChatDock } from '../../components/MagicChatDock'
 import { SiteFooter } from '../../components/SiteFooter'
 import { SiteNav } from '../../components/SiteNav'
+import { useI18n } from '../../i18n/I18nProvider'
 
 const reels = [
   { label: 'Realtime supervisor', value: '124 traces/min', hue: 'from-cyan-400 to-sky-500' },
@@ -13,6 +14,12 @@ const reels = [
 
 export function HomeProposalAurora() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: { badge: 'New proposal · Aurora Flux', title: 'A slick, cinematic entry for your AI agency.', start: 'Start this direction', back: 'Back to all themes', why: 'Why this one feels slick' },
+    es: { badge: 'Nueva propuesta · Aurora Flux', title: 'Una entrada cinematográfica para tu agencia IA.', start: 'Iniciar esta dirección', back: 'Volver a todos los temas', why: 'Por qué esta opción se siente slick' },
+    ca: { badge: 'Nova proposta · Aurora Flux', title: 'Una entrada cinematogràfica per a la teva agència IA.', start: 'Iniciar aquesta direcció', back: 'Tornar a tots els temes', why: 'Per què aquesta opció es veu tan slick' },
+  }[locale]
 
   return (
     <div className="min-h-screen bg-[#050914] text-white">
@@ -47,10 +54,10 @@ export function HomeProposalAurora() {
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-cyan-200">
                 <Sparkles className="h-3.5 w-3.5" aria-hidden />
-                New proposal · Aurora Flux
+                {copy.badge}
               </p>
               <h1 className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl">
-                A slick, cinematic entry for your AI agency.
+                {copy.title}
               </h1>
               <p className="mt-5 max-w-xl text-lg text-slate-200/90">
                 Different color universe, transparent header feel, and motion-first storytelling. This version is designed to be eye-catching on first load while keeping enterprise credibility.
@@ -60,13 +67,13 @@ export function HomeProposalAurora() {
                   to="/contact"
                   className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-cyan-100"
                 >
-                  Start this direction <ArrowRight className="h-4 w-4" />
+                  {copy.start} <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   to="/"
                   className="inline-flex cursor-pointer rounded-xl border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
-                  Back to all themes
+                  {copy.back}
                 </Link>
               </div>
             </div>
@@ -117,7 +124,7 @@ export function HomeProposalAurora() {
         <section className="mt-12 rounded-2xl border border-white/10 bg-slate-900/60 p-6">
           <div className="flex items-center gap-2 text-cyan-200">
             <Waves className="h-5 w-5" aria-hidden />
-            <p className="text-sm font-semibold uppercase tracking-wider">Why this one feels slick</p>
+            <p className="text-sm font-semibold uppercase tracking-wider">{copy.why}</p>
           </div>
           <ul className="mt-4 grid gap-2 text-sm text-slate-200 sm:grid-cols-2">
             <li>• Transparent header treatment over luminous hero layers</li>

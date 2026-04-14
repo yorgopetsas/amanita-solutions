@@ -1,14 +1,21 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { Timer, Waves } from 'lucide-react'
+import { useI18n } from '../../i18n/I18nProvider'
 
 export function AnimationsPage() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: { badge: 'Studio · Animations', title: 'The beauty is in the easing.', cta: 'See motion inside the trace demo' },
+    es: { badge: 'Studio · Animaciones', title: 'La belleza está en el easing.', cta: 'Ver motion dentro de la demo de trazas' },
+    ca: { badge: 'Studio · Animacions', title: "La bellesa és a l'easing.", cta: 'Veure motion dins la demo de traces' },
+  }[locale]
   return (
     <div className="space-y-12">
       <header className="rounded-3xl bg-slate-950 px-8 py-14 text-white sm:px-12">
-        <p className="text-xs font-semibold uppercase tracking-widest text-violet-300">Studio · Animations</p>
-        <h1 className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-semibold sm:text-5xl">The beauty is in the easing.</h1>
+        <p className="text-xs font-semibold uppercase tracking-widest text-violet-300">{copy.badge}</p>
+        <h1 className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-semibold sm:text-5xl">{copy.title}</h1>
         <p className="mt-4 max-w-xl text-slate-400">
           Inspired by Framer’s animation controls (spring, delay, stagger)—implemented here with{' '}
           <a href="https://motion.dev" className="text-violet-300 underline-offset-2 hover:underline" target="_blank" rel="noreferrer">
@@ -69,7 +76,7 @@ export function AnimationsPage() {
       </div>
 
       <Link to="/demo" className="inline-flex cursor-pointer text-sm font-semibold text-violet-600 hover:underline dark:text-violet-300">
-        See motion inside the trace demo →
+        {copy.cta} →
       </Link>
     </div>
   )

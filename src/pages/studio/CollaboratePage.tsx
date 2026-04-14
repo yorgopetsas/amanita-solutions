@@ -1,14 +1,21 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { MessageSquare, UserPlus, Wand2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../i18n/I18nProvider'
 
 export function CollaboratePage() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: { title: 'Collaborate in real time-on prompts, policies, and traces.', handoff: 'Handoff checklist (freelancer-friendly)', cta: 'Invite us to your workspace' },
+    es: { title: 'Colabora en tiempo real con prompts, políticas y trazas.', handoff: 'Checklist de handoff (freelancer-friendly)', cta: 'Invítanos a tu workspace' },
+    ca: { title: 'Col·labora en temps real amb prompts, polítiques i traces.', handoff: 'Checklist de handoff (freelancer-friendly)', cta: 'Convida’ns al teu workspace' },
+  }[locale]
   return (
     <div className="space-y-14">
       <header className="mx-auto max-w-3xl text-center">
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold text-slate-900 dark:text-white sm:text-5xl">
-          Collaborate in real time—on prompts, policies, and traces.
+          {copy.title}
         </h1>
         <p className="mt-4 text-slate-600 dark:text-slate-300">
           Drawing from Framer’s collaboration story and Webflow’s client-handoff flows: invite reviewers, thread comments on agent behavior, and ship with{' '}
@@ -38,7 +45,7 @@ export function CollaboratePage() {
       </div>
 
       <section className="rounded-3xl border border-slate-200 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-900/60">
-        <h2 className="font-semibold text-slate-900 dark:text-white">Handoff checklist (freelancer-friendly)</h2>
+        <h2 className="font-semibold text-slate-900 dark:text-white">{copy.handoff}</h2>
         <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
           <li>Transfer workspace ownership—or keep Nexus as guest in yours.</li>
           <li>Scope client-safe CMS zones for RAG corpora updates.</li>
@@ -55,7 +62,7 @@ export function CollaboratePage() {
 
       <div className="text-center">
         <Link to="/contact" className="inline-flex cursor-pointer rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white dark:bg-white dark:text-slate-900">
-          Invite us to your workspace
+          {copy.cta}
         </Link>
       </div>
     </div>

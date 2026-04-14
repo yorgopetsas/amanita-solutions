@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { Palette, PenTool, Shapes } from 'lucide-react'
+import { useI18n } from '../../i18n/I18nProvider'
 
 const work = [
   'Genesis — Black Canvas',
@@ -13,12 +14,18 @@ const work = [
 
 export function SystemsPage() {
   const reduce = useReducedMotion()
+  const { locale } = useI18n()
+  const copy = {
+    en: { badge: 'Studio · Systems', title: 'Design systems for agent-native products.', cta: 'We’d love to chat about your system' },
+    es: { badge: 'Studio · Sistemas', title: 'Sistemas de diseño para productos agent-native.', cta: 'Nos encantará hablar sobre tu sistema' },
+    ca: { badge: 'Studio · Sistemes', title: 'Sistemes de disseny per a productes agent-native.', cta: 'Ens encantaria parlar sobre el teu sistema' },
+  }[locale]
   return (
     <div className="space-y-16">
       <header>
-        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Studio · Systems</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">{copy.badge}</p>
         <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-4xl font-semibold leading-tight text-slate-900 dark:text-white sm:text-5xl">
-          Design systems for agent-native products.
+          {copy.title}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
           Motion-first thinking meets long-term partnerships—patterned after{' '}
@@ -69,7 +76,7 @@ export function SystemsPage() {
       </section>
 
       <Link to="/contact" className="inline-flex cursor-pointer text-sm font-semibold text-violet-600 hover:underline dark:text-violet-300">
-        We’d love to chat about your system →
+        {copy.cta} →
       </Link>
     </div>
   )
