@@ -36,6 +36,16 @@ jobs:
           VITE_GA_ID: G-MSY0MHMWPV
           VITE_PLAUSIBLE_DOMAIN: ''
 
+      - name: Add CNAME for custom domain
+        run: echo "amanita.barcelona" > ./dist/CNAME
+
+      - name: Include news site at /news/
+        run: |
+          git clone --depth 1 https://github.com/yorgopetsas/ai-agency-site.git /tmp/news-site
+          mkdir -p ./dist/news
+          cp -r /tmp/news-site/* ./dist/news/
+          rm -f ./dist/news/CNAME
+
       - name: Publish dist to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
